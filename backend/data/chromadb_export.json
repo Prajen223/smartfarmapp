@@ -1,0 +1,577 @@
+﻿{
+    "id":  "2beb5de6-ae7b-4be4-949e-4bfafe19cdab",
+    "exported":  "2026-10-29T23:04:29",
+    "server":  "http://127.0.0.1:8001",
+    "records":  [
+                    {
+                        "document":  "Paddy (Rice) Package of Practices \u0026 Water Aeration\nPackage of Practices for Paddy (Rice): â¢ Sowing \u0026 Seed Rate: 10-12 kg/acre for SRI or 20-25 kg/acre for traditional transplanting. â¢ Water Management: Adopt Alternate Wetting and Drying (AWD). Keep 2-3 cm shallow water during tillering and panicle initiation, then allow soil to develop hairline cracks before re-watering. â¢ Nutrient Schedule: Apply Nitrogen in 3 split doses (50% basal, 25% active tillering, 25% panicle initiation). â¢ Zinc Deficiency: If lower leaves exhibit reddish-brown bronzing, spray 0.5% Zinc Sulphate +",
+                        "id":  "doc_crop_001_c0",
+                        "metadata":  {
+                                         "category":  "crops",
+                                         "crops_applicable":  "paddy",
+                                         "guardrail_notice":  "Exact fertilizer dose should be calibrated to your Soil Health Card test values.",
+                                         "chunk_index":  0,
+                                         "organization":  "Central Agricultural Research Institute",
+                                         "source_name":  "ICAR â National Rice Research Institute (NRRI)",
+                                         "soil_types_applicable":  "clay, clay_loam, alluvial",
+                                         "title":  "Paddy (Rice) Package of Practices \u0026 Water Aeration",
+                                         "verification_status":  "verified_curated",
+                                         "tags":  "paddy, rice, awd, n-p-k, nursery, transplanting",
+                                         "official_url":  "https://nrri.nic.in"
+                                     }
+                    },
+                    {
+                        "document":  "Paddy (Rice) Package of Practices \u0026 Water Aeration\n25% active tillering, 25% panicle initiation). â¢ Zinc Deficiency: If lower leaves exhibit reddish-brown bronzing, spray 0.5% Zinc Sulphate + 0.25% lime solution.",
+                        "id":  "doc_crop_001_c1",
+                        "metadata":  {
+                                         "chunk_index":  1,
+                                         "soil_types_applicable":  "clay, clay_loam, alluvial",
+                                         "guardrail_notice":  "Exact fertilizer dose should be calibrated to your Soil Health Card test values.",
+                                         "crops_applicable":  "paddy",
+                                         "source_name":  "ICAR â National Rice Research Institute (NRRI)",
+                                         "tags":  "paddy, rice, awd, n-p-k, nursery, transplanting",
+                                         "title":  "Paddy (Rice) Package of Practices \u0026 Water Aeration",
+                                         "official_url":  "https://nrri.nic.in",
+                                         "verification_status":  "verified_curated",
+                                         "category":  "crops",
+                                         "organization":  "Central Agricultural Research Institute"
+                                     }
+                    },
+                    {
+                        "document":  "Wheat Cultivation and Critical Crown Root Initiation (CRI)\nWheat Agronomy \u0026 Irrigation Timing: â¢ Sowing Window: Optimal sowing is between November 1 and November 20 in Northern plains. â¢ Critical Stage: Crown Root Initiation (CRI) occurs at 20-25 days after sowing. First irrigation at this stage is mandatory for tiller survival. â¢ Subsequent Irrigations: Tillering (40-45 DAS), Jointing (60-65 DAS), Flowering (80-85 DAS), and Milk/Grain filling (100-105 DAS). â¢ Fertilizer: Apply full dose of P and K with 1/3rd Nitrogen at basal sowing; remaining N in two top-dressings.",
+                        "id":  "doc_crop_002_c0",
+                        "metadata":  {
+                                         "organization":  "Central Agricultural Research Institute",
+                                         "crops_applicable":  "wheat",
+                                         "tags":  "wheat, cri, irrigation, timely_sowing, rust",
+                                         "guardrail_notice":  "Do not delay the first irrigation past 25 days post-sowing, as crown root starvation permanently reduces yield.",
+                                         "soil_types_applicable":  "alluvial, loamy, clay_loam",
+                                         "title":  "Wheat Cultivation and Critical Crown Root Initiation (CRI)",
+                                         "category":  "crops",
+                                         "chunk_index":  0,
+                                         "official_url":  "https://iiwbr.icar.gov.in",
+                                         "verification_status":  "verified_curated",
+                                         "source_name":  "ICAR â Indian Institute of Wheat and Barley Research (IIWBR)"
+                                     }
+                    },
+                    {
+                        "document":  "Tomato Cultivation, Staking, and Fruit Setting\nTomato Production Guidelines: â¢ Nursery Management: Raise seedlings under 40-mesh insect-proof nylon net to protect against whitefly and Leaf Curl Virus. â¢ Transplanting: 25-30 days old healthy seedlings with 60x45 cm spacing. â¢ Staking: Support plants with bamboo sticks or wire trellises at 30 days to avoid soil contact and fruit rot. â¢ Irrigation: Regular, uniform moisture is critical. Irregular watering causes Blossom End Rot (Calcium deficiency) and fruit cracking.",
+                        "id":  "doc_crop_003_c0",
+                        "metadata":  {
+                                         "crops_applicable":  "tomato",
+                                         "tags":  "tomato, staking, blossom_end_rot, calcium, drip",
+                                         "category":  "crops",
+                                         "soil_types_applicable":  "red, loamy, alluvial, black",
+                                         "organization":  "Horticultural Research Institute",
+                                         "official_url":  "https://iihr.res.in",
+                                         "guardrail_notice":  "Always inspect undersides of tomato leaves weekly for early whitefly vectors.",
+                                         "chunk_index":  0,
+                                         "title":  "Tomato Cultivation, Staking, and Fruit Setting",
+                                         "source_name":  "ICAR â Indian Institute of Horticultural Research (IIHR)",
+                                         "verification_status":  "verified_curated"
+                                     }
+                    },
+                    {
+                        "document":  "Cotton High-Density Planting \u0026 Square Formation Management\nCotton Package of Practices: â¢ High-Density Planting System (HDPS): 60x15 cm spacing using compact non-Bt or Bt cultivars under rainfed conditions. â¢ Critical Growth Stages: Squaring (40-45 DAS) and peak boll development (75-90 DAS). Moisture stress at squaring leads to massive square drop. â¢ Nutrient Application: Apply 1/3rd N + full P and K at sowing; top dress remaining N at square formation and peak flowering. â¢ Sucking Pest Caution: Monitor jassids and thrips before 60 DAS; spray neem formulations",
+                        "id":  "doc_crop_004_c0",
+                        "metadata":  {
+                                         "organization":  "Commodity Research Institute",
+                                         "verification_status":  "verified_curated",
+                                         "category":  "crops",
+                                         "crops_applicable":  "cotton",
+                                         "official_url":  "https://cicr.icar.gov.in",
+                                         "source_name":  "ICAR â Central Institute for Cotton Research (CICR)",
+                                         "chunk_index":  0,
+                                         "guardrail_notice":  "Do not apply excessive nitrogen during vegetative stage as it promotes vegetative rank growth and delays boll setting.",
+                                         "title":  "Cotton High-Density Planting \u0026 Square Formation Management",
+                                         "tags":  "cotton, hdps, square_formation, bollworm, black_soil",
+                                         "soil_types_applicable":  "black, alluvial, deep_loam"
+                                     }
+                    },
+                    {
+                        "document":  "Cotton High-Density Planting \u0026 Square Formation Management\nat square formation and peak flowering. â¢ Sucking Pest Caution: Monitor jassids and thrips before 60 DAS; spray neem formulations before considering chemicals.",
+                        "id":  "doc_crop_004_c1",
+                        "metadata":  {
+                                         "crops_applicable":  "cotton",
+                                         "organization":  "Commodity Research Institute",
+                                         "chunk_index":  1,
+                                         "verification_status":  "verified_curated",
+                                         "category":  "crops",
+                                         "soil_types_applicable":  "black, alluvial, deep_loam",
+                                         "title":  "Cotton High-Density Planting \u0026 Square Formation Management",
+                                         "official_url":  "https://cicr.icar.gov.in",
+                                         "tags":  "cotton, hdps, square_formation, bollworm, black_soil",
+                                         "guardrail_notice":  "Do not apply excessive nitrogen during vegetative stage as it promotes vegetative rank growth and delays boll setting.",
+                                         "source_name":  "ICAR â Central Institute for Cotton Research (CICR)"
+                                     }
+                    },
+                    {
+                        "document":  "Chickpea (Gram) Rhizobium Inoculation \u0026 Pod Borer Management\nChickpea / Bengal Gram Management: â¢ Seed Treatment: Treat seeds with Rhizobium leguminosarum and PSB cultures at 10 g/kg seed to ensure nodulation and nitrogen fixation. â¢ Nipping: Nip terminal buds at 35-40 DAS to promote lateral branching and pod clusters. â¢ Pod Borer (Helicoverpa armigera): Install 4-5 pheromone traps/acre. Spray NPV 250 LE/ha or Bacillus thuringiensis (Bt) at 1 kg/ha at early larval emergence.",
+                        "id":  "doc_crop_005_c0",
+                        "metadata":  {
+                                         "chunk_index":  0,
+                                         "title":  "Chickpea (Gram) Rhizobium Inoculation \u0026 Pod Borer Management",
+                                         "organization":  "National Pulse Research Institute",
+                                         "category":  "crops",
+                                         "official_url":  "https://iipr.icar.gov.in",
+                                         "source_name":  "ICAR â Indian Institute of Pulses Research (IIPR)",
+                                         "tags":  "chickpea, gram, rhizobium, helicoverpa, pulses, pod_borer",
+                                         "verification_status":  "verified_curated",
+                                         "guardrail_notice":  "Avoid irrigation at peak flowering stage as it induces vegetative growth and causes flower dropping.",
+                                         "crops_applicable":  "chickpea, gram",
+                                         "soil_types_applicable":  "clay_loam, loamy, black"
+                                     }
+                    },
+                    {
+                        "document":  "Black Cotton Soil (Regur) Properties and Drainage Management\nBlack Cotton Soil (Regur) Agronomy: â¢ Properties: High clay content (predominantly montmorillonite), excellent moisture retention, high cation exchange capacity (CEC). â¢ Physical Behavior: Swells strongly when wet and develops deep, wide cracks when dry, facilitating self-ploughing and aeration. â¢ Challenges: Highly prone to waterlogging and compaction when wet; difficult to work immediately after heavy rainfall. â¢ Management: Provide broad bed and furrow (BBF) systems for drainage. Avoid over-irrigation. Apply gypsum if sodicity (ESP \u003e 15) is detected.",
+                        "id":  "doc_soil_001_c0",
+                        "metadata":  {
+                                         "official_url":  "https://iiss.icar.gov.in",
+                                         "organization":  "National Soil Research Institute",
+                                         "tags":  "black_soil, regur, clay, montmorillonite, drainage, cotton",
+                                         "category":  "soil",
+                                         "verification_status":  "verified_curated",
+                                         "crops_applicable":  "cotton, soybean, sugarcane, paddy, chickpea",
+                                         "chunk_index":  0,
+                                         "source_name":  "ICAR â Indian Institute of Soil Science (IISS)",
+                                         "guardrail_notice":  "Do not enter black cotton fields with heavy machinery when soil moisture is above field capacity.",
+                                         "title":  "Black Cotton Soil (Regur) Properties and Drainage Management",
+                                         "soil_types_applicable":  "black"
+                                     }
+                    },
+                    {
+                        "document":  "Soil Health Card Testing \u0026 Balanced Nutrient Management\nSoil Health Card (SHC) Protocol: â¢ 12 Parameters Analyzed: Primary nutrients (N, P, K), Secondary nutrient (S), Micronutrients (Zn, Fe, Cu, Mn, Bo), and Physical parameters (pH, EC, Organic Carbon). â¢ Sampling Procedure: Take 8-10 \u0027V\u0027 shaped soil core samples per acre from 0-15 cm depth. Thoroughly mix, quarter down to 500 grams, dry in shade, and label. â¢ pH Correction: For acidic soils (pH \u003c 6.0), apply agricultural lime or dolomite. For alkaline soils (pH \u003e 8.5), incorporate gypsum",
+                        "id":  "doc_soil_002_c0",
+                        "metadata":  {
+                                         "guardrail_notice":  "Soil samples must always be dried in shade, never under direct sun or oven heat.",
+                                         "category":  "soil",
+                                         "chunk_index":  0,
+                                         "organization":  "Central Government Scheme Directorate",
+                                         "verification_status":  "verified_curated",
+                                         "source_name":  "Ministry of Agriculture \u0026 Farmers Welfare â Soil Health Division",
+                                         "tags":  "soil_health_card, soil_testing, ph, organic_carbon, npk, zinc",
+                                         "title":  "Soil Health Card Testing \u0026 Balanced Nutrient Management",
+                                         "official_url":  "https://soilhealth.dac.gov.in",
+                                         "soil_types_applicable":  "alluvial, black, red, laterite, sandy"
+                                     }
+                    },
+                    {
+                        "document":  "Soil Health Card Testing \u0026 Balanced Nutrient Management\nCorrection: For acidic soils (pH \u003c 6.0), apply agricultural lime or dolomite. For alkaline soils (pH \u003e 8.5), incorporate gypsum with leaching. â¢ Organic Carbon (OC): Target OC \u003e 0.75%. If below 0.5%, incorporate 4-5 tons/acre of well-rotted FYM, vermicompost, or green manure.",
+                        "id":  "doc_soil_002_c1",
+                        "metadata":  {
+                                         "title":  "Soil Health Card Testing \u0026 Balanced Nutrient Management",
+                                         "official_url":  "https://soilhealth.dac.gov.in",
+                                         "category":  "soil",
+                                         "organization":  "Central Government Scheme Directorate",
+                                         "source_name":  "Ministry of Agriculture \u0026 Farmers Welfare â Soil Health Division",
+                                         "verification_status":  "verified_curated",
+                                         "tags":  "soil_health_card, soil_testing, ph, organic_carbon, npk, zinc",
+                                         "soil_types_applicable":  "alluvial, black, red, laterite, sandy",
+                                         "guardrail_notice":  "Soil samples must always be dried in shade, never under direct sun or oven heat.",
+                                         "chunk_index":  1
+                                     }
+                    },
+                    {
+                        "document":  "Integrated Pest Management (IPM) for Sucking Pests (Aphids, Whiteflies, Thrips)\nIPM Protocol for Sucking Pests: â¢ Symptoms: Yellowing, leaf curling, crinkling, sooty mold on honeydew secretions, and transmission of viral diseases. â¢ Mechanical Control: Install 10-12 yellow sticky traps per acre for whiteflies/aphids and blue sticky traps for thrips at canopy height. â¢ Botanical Sprays: Spray 5% Neem Seed Kernel Extract (NSKE) or cold-pressed Neem Oil (10,000 ppm) at 3 ml/liter early in the morning. â¢ Biological Predators: Conserve ladybird beetles and green lacewings (Chrysoperla carnea); avoid broad-spectrum pyrethroid insecticides",
+                        "id":  "doc_pest_001_c0",
+                        "metadata":  {
+                                         "source_name":  "ICAR â National Research Centre for Integrated Pest Management (NCIPM)",
+                                         "organization":  "Central Pest Management Institute",
+                                         "verification_status":  "verified_curated",
+                                         "tags":  "aphids, whiteflies, thrips, ipm, sticky_traps, nske, neem_oil",
+                                         "chunk_index":  0,
+                                         "title":  "Integrated Pest Management (IPM) for Sucking Pests (Aphids, Whiteflies, Thrips)",
+                                         "crops_applicable":  "tomato, chili, cotton, brinjal, okra",
+                                         "official_url":  "https://ncipm.icar.gov.in",
+                                         "category":  "pests",
+                                         "guardrail_notice":  "Never spray synthetic insecticides during peak bee-pollination hours (8 AM - 11 AM)."
+                                     }
+                    },
+                    {
+                        "document":  "Integrated Pest Management (IPM) for Sucking Pests (Aphids, Whiteflies, Thrips)\nml/liter early in the morning. â¢ Biological Predators: Conserve ladybird beetles and green lacewings (Chrysoperla carnea); avoid broad-spectrum pyrethroid insecticides which wipe out natural enemies.",
+                        "id":  "doc_pest_001_c1",
+                        "metadata":  {
+                                         "organization":  "Central Pest Management Institute",
+                                         "chunk_index":  1,
+                                         "crops_applicable":  "tomato, chili, cotton, brinjal, okra",
+                                         "category":  "pests",
+                                         "tags":  "aphids, whiteflies, thrips, ipm, sticky_traps, nske, neem_oil",
+                                         "verification_status":  "verified_curated",
+                                         "guardrail_notice":  "Never spray synthetic insecticides during peak bee-pollination hours (8 AM - 11 AM).",
+                                         "title":  "Integrated Pest Management (IPM) for Sucking Pests (Aphids, Whiteflies, Thrips)",
+                                         "official_url":  "https://ncipm.icar.gov.in",
+                                         "source_name":  "ICAR â National Research Centre for Integrated Pest Management (NCIPM)"
+                                     }
+                    },
+                    {
+                        "document":  "Pink Bollworm \u0026 Stem Borer Monitoring and Biological Control\nBorer Pest Management Guidelines: â¢ Pheromone Trapping: Install 4-5 sex-pheromone traps per acre for early monitoring. Economic threshold (ETL) is 8 moths/trap/night for 3 consecutive nights. â¢ Egg Parasitoids: Release Trichogramma chilonis / Trichogramma japonicum cards at 50,000 parasitized eggs/acre at 7-10 day intervals starting at early squaring or tillering. â¢ Cultural Sanitation: Shred and destroy crop stalks immediately after harvest to eliminate overwintering diapausing larvae.",
+                        "id":  "doc_pest_002_c0",
+                        "metadata":  {
+                                         "organization":  "Commodity Research Institute",
+                                         "source_name":  "ICAR â Central Institute for Cotton Research (CICR)",
+                                         "verification_status":  "verified_curated",
+                                         "tags":  "pink_bollworm, stem_borer, borers, pheromone_trap, trichogramma",
+                                         "guardrail_notice":  "Chemical intervention should only be initiated if trap catches cross ETL levels.",
+                                         "crops_applicable":  "cotton, paddy, maize",
+                                         "official_url":  "https://cicr.icar.gov.in",
+                                         "category":  "pests",
+                                         "chunk_index":  0,
+                                         "title":  "Pink Bollworm \u0026 Stem Borer Monitoring and Biological Control"
+                                     }
+                    },
+                    {
+                        "document":  "Kisan Call Centre FAQ: Fall Armyworm (FAW) Management in Maize\nKCC Farmer Advisory â Fall Armyworm in Maize: â¢ Identification: Look for ragged leaf damage, shot holes in lines, and sawdust-like frass inside the central leaf whorl. â¢ Scouting: Check 20 consecutive plants across 5 spots in the field starting 7-10 days after crop emergence. â¢ Non-Chemical Measures: Hand-pick egg masses and young larvae. Apply dry sand or wood ash (mixed with lime 9:1) directly into leaf whorls to desiccate young larvae. â¢ Bio-Pesticide: Spray Metarhizium rileyi or Beauveria bassiana",
+                        "id":  "doc_pest_003_c0",
+                        "metadata":  {
+                                         "chunk_index":  0,
+                                         "source_name":  "Kisan Call Centre â National Farmer Helpline (1800-180-1551)",
+                                         "official_url":  "https://dackkms.gov.in",
+                                         "category":  "pests",
+                                         "title":  "Kisan Call Centre FAQ: Fall Armyworm (FAW) Management in Maize",
+                                         "guardrail_notice":  "Always direct sprays deep into the central plant whorl where FAW larvae hide.",
+                                         "verification_status":  "verified_curated",
+                                         "crops_applicable":  "maize",
+                                         "tags":  "fall_armyworm, faw, spodoptera, maize, kcc_faq, whirl_application",
+                                         "organization":  "Department of Agriculture \u0026 Farmers Welfare (DAC\u0026FW)"
+                                     }
+                    },
+                    {
+                        "document":  "Kisan Call Centre FAQ: Fall Armyworm (FAW) Management in Maize\n(mixed with lime 9:1) directly into leaf whorls to desiccate young larvae. â¢ Bio-Pesticide: Spray Metarhizium rileyi or Beauveria bassiana at 5 g/liter into the whorls during evening hours.",
+                        "id":  "doc_pest_003_c1",
+                        "metadata":  {
+                                         "source_name":  "Kisan Call Centre â National Farmer Helpline (1800-180-1551)",
+                                         "category":  "pests",
+                                         "verification_status":  "verified_curated",
+                                         "guardrail_notice":  "Always direct sprays deep into the central plant whorl where FAW larvae hide.",
+                                         "chunk_index":  1,
+                                         "title":  "Kisan Call Centre FAQ: Fall Armyworm (FAW) Management in Maize",
+                                         "crops_applicable":  "maize",
+                                         "tags":  "fall_armyworm, faw, spodoptera, maize, kcc_faq, whirl_application",
+                                         "official_url":  "https://dackkms.gov.in",
+                                         "organization":  "Department of Agriculture \u0026 Farmers Welfare (DAC\u0026FW)"
+                                     }
+                    },
+                    {
+                        "document":  "Early Blight \u0026 Late Blight Management in Solanaceous Crops\nBlight Disease Management in Tomato and Potato: â¢ Early Blight (Alternaria solani): Produces concentric target-board brown rings on older lower leaves. Favored by high humidity and moderate temperatures. â¢ Late Blight (Phytophthora infestans): Water-soaked lesions turning dark brown/black with white fungal growth on undersides in cool, foggy weather. â¢ Preventative Cultural Measures: Avoid overhead irrigation; water only roots. Prune lower diseased foliage. Maintain plant spacing for airflow. â¢ Organic/Preventative Spray: Spray Copper Oxychloride (2.5 g/liter) or Mancozeb (2 g/liter) as",
+                        "id":  "doc_disease_001_c0",
+                        "metadata":  {
+                                         "category":  "diseases",
+                                         "guardrail_notice":  "Do not apply fungicide sprays immediately before rain. Always respect minimum pre-harvest intervals.",
+                                         "source_name":  "ICAR â Central Potato Research Institute (CPRI)",
+                                         "title":  "Early Blight \u0026 Late Blight Management in Solanaceous Crops",
+                                         "official_url":  "https://cpri.icar.gov.in",
+                                         "crops_applicable":  "tomato, potato",
+                                         "chunk_index":  0,
+                                         "verification_status":  "verified_curated",
+                                         "organization":  "Central Agricultural Institute",
+                                         "tags":  "early_blight, late_blight, blight, alternaria, phytophthora, copper_oxychloride"
+                                     }
+                    },
+                    {
+                        "document":  "Early Blight \u0026 Late Blight Management in Solanaceous Crops\ndiseased foliage. Maintain plant spacing for airflow. â¢ Organic/Preventative Spray: Spray Copper Oxychloride (2.5 g/liter) or Mancozeb (2 g/liter) as protective sprays at first sign of cloudy, humid conditions.",
+                        "id":  "doc_disease_001_c1",
+                        "metadata":  {
+                                         "crops_applicable":  "tomato, potato",
+                                         "chunk_index":  1,
+                                         "verification_status":  "verified_curated",
+                                         "category":  "diseases",
+                                         "title":  "Early Blight \u0026 Late Blight Management in Solanaceous Crops",
+                                         "organization":  "Central Agricultural Institute",
+                                         "guardrail_notice":  "Do not apply fungicide sprays immediately before rain. Always respect minimum pre-harvest intervals.",
+                                         "tags":  "early_blight, late_blight, blight, alternaria, phytophthora, copper_oxychloride",
+                                         "official_url":  "https://cpri.icar.gov.in",
+                                         "source_name":  "ICAR â Central Potato Research Institute (CPRI)"
+                                     }
+                    },
+                    {
+                        "document":  "Rice Blast and Wheat Rust Disease Management\nBlast and Rust Protocols: â¢ Rice Blast (Magnaporthe oryzae): Diamond/spindle-shaped lesions with grey centers and brown borders. Moderate Nitrogen applications to prevent susceptibility. â¢ Wheat Rust (Puccinia spp.): Yellow stripe rust, brown leaf rust, or black stem rust pustules. Plant approved rust-resistant varieties for your zone. â¢ Seed Treatment: Treat seeds with Pseudomonas fluorescens or Trichoderma viride at 10 g/kg seed before sowing to suppress seed-borne inoculum.",
+                        "id":  "doc_disease_002_c0",
+                        "metadata":  {
+                                         "chunk_index":  0,
+                                         "source_name":  "ICAR â Indian Agricultural Research Institute (IARI)",
+                                         "verification_status":  "verified_curated",
+                                         "official_url":  "https://iari.res.in",
+                                         "tags":  "rice_blast, wheat_rust, blast, rust, seed_treatment",
+                                         "guardrail_notice":  "Never use uncertified seed saved from fields that suffered severe blast or rust outbreaks.",
+                                         "organization":  "Premier National Agricultural Institute",
+                                         "crops_applicable":  "paddy, wheat",
+                                         "title":  "Rice Blast and Wheat Rust Disease Management",
+                                         "category":  "diseases"
+                                     }
+                    },
+                    {
+                        "document":  "Kisan Call Centre FAQ: Yellow Mosaic Virus (YMV) in Pulses\nKCC Farmer Advisory â Yellow Mosaic Virus Control: â¢ Symptoms: Alternating green and bright yellow patches on leaves, stunted growth, and severely reduced pod filling. â¢ Vector Transmission: Transmitted strictly by the whitefly (Bemisia tabaci). There is no chemical cure for the virus once plants are infected; vector management is essential. â¢ Management: Rouge out and bury early infected plants immediately. Install yellow sticky traps (10/acre). Spray 5% NSKE at 15 DAS. â¢ Resistant Varieties: Always choose YMV-resistant cultivars recommended",
+                        "id":  "doc_disease_003_c0",
+                        "metadata":  {
+                                         "chunk_index":  0,
+                                         "tags":  "yellow_mosaic_virus, ymv, whitefly_vector, pulses, kcc_faq",
+                                         "category":  "diseases",
+                                         "verification_status":  "verified_curated",
+                                         "official_url":  "https://dackkms.gov.in",
+                                         "guardrail_notice":  "Infected plants cannot be cured; rogue them out immediately to prevent whiteflies spreading the virus to healthy plants.",
+                                         "title":  "Kisan Call Centre FAQ: Yellow Mosaic Virus (YMV) in Pulses",
+                                         "organization":  "Department of Agriculture \u0026 Farmers Welfare (DAC\u0026FW)",
+                                         "crops_applicable":  "chickpea, blackgram, greengram, soybean",
+                                         "source_name":  "Kisan Call Centre â National Farmer Helpline (1800-180-1551)"
+                                     }
+                    },
+                    {
+                        "document":  "Kisan Call Centre FAQ: Yellow Mosaic Virus (YMV) in Pulses\nimmediately. Install yellow sticky traps (10/acre). Spray 5% NSKE at 15 DAS. â¢ Resistant Varieties: Always choose YMV-resistant cultivars recommended by your state agricultural university.",
+                        "id":  "doc_disease_003_c1",
+                        "metadata":  {
+                                         "verification_status":  "verified_curated",
+                                         "tags":  "yellow_mosaic_virus, ymv, whitefly_vector, pulses, kcc_faq",
+                                         "guardrail_notice":  "Infected plants cannot be cured; rogue them out immediately to prevent whiteflies spreading the virus to healthy plants.",
+                                         "title":  "Kisan Call Centre FAQ: Yellow Mosaic Virus (YMV) in Pulses",
+                                         "chunk_index":  1,
+                                         "official_url":  "https://dackkms.gov.in",
+                                         "source_name":  "Kisan Call Centre â National Farmer Helpline (1800-180-1551)",
+                                         "category":  "diseases",
+                                         "crops_applicable":  "chickpea, blackgram, greengram, soybean",
+                                         "organization":  "Department of Agriculture \u0026 Farmers Welfare (DAC\u0026FW)"
+                                     }
+                    },
+                    {
+                        "document":  "Micro-Irrigation Engineering (Drip and Sprinkler) \u0026 Fertigation\nDrip Irrigation and Fertigation System Architecture: â¢ Water Saving: Saves 40% to 60% irrigation water compared to surface flooding, reducing weed proliferation and evaporation loss. â¢ Uniform Distribution: Pressure-compensating drippers deliver water and soluble nutrients directly to the active root zone. â¢ Fertigation Schedule: Apply 100% water-soluble fertilizers (e.g. 19-19-19, Urea, Potassium Nitrate) in small weekly increments, boosting nutrient use efficiency by 30-40%. â¢ Maintenance: Flush sub-mains and laterals bi-weekly. Clean disk/screen filters weekly. Treat with dilute acid (0.1% hydrochloric",
+                        "id":  "doc_practice_001_c0",
+                        "metadata":  {
+                                         "tags":  "drip_irrigation, sprinkler, fertigation, water_saving, pmksy",
+                                         "soil_types_applicable":  "alluvial, black, red, sandy, loamy",
+                                         "category":  "farming_practices",
+                                         "organization":  "Central Mission Directorate",
+                                         "crops_applicable":  "tomato, cotton, banana, sugarcane, chili, maize",
+                                         "official_url":  "https://pmksy.gov.in",
+                                         "source_name":  "National Mission on Micro Irrigation â MoA\u0026FW",
+                                         "verification_status":  "verified_curated",
+                                         "title":  "Micro-Irrigation Engineering (Drip and Sprinkler) \u0026 Fertigation",
+                                         "guardrail_notice":  "Never inject raw insoluble DAP or single superphosphate into drip lines without pre-filtration.",
+                                         "chunk_index":  0
+                                     }
+                    },
+                    {
+                        "document":  "Micro-Irrigation Engineering (Drip and Sprinkler) \u0026 Fertigation\nefficiency by 30-40%. â¢ Maintenance: Flush sub-mains and laterals bi-weekly. Clean disk/screen filters weekly. Treat with dilute acid (0.1% hydrochloric or phosphoric acid) once a season to clear mineral scaling.",
+                        "id":  "doc_practice_001_c1",
+                        "metadata":  {
+                                         "category":  "farming_practices",
+                                         "chunk_index":  1,
+                                         "guardrail_notice":  "Never inject raw insoluble DAP or single superphosphate into drip lines without pre-filtration.",
+                                         "soil_types_applicable":  "alluvial, black, red, sandy, loamy",
+                                         "source_name":  "National Mission on Micro Irrigation â MoA\u0026FW",
+                                         "tags":  "drip_irrigation, sprinkler, fertigation, water_saving, pmksy",
+                                         "crops_applicable":  "tomato, cotton, banana, sugarcane, chili, maize",
+                                         "title":  "Micro-Irrigation Engineering (Drip and Sprinkler) \u0026 Fertigation",
+                                         "verification_status":  "verified_curated",
+                                         "organization":  "Central Mission Directorate",
+                                         "official_url":  "https://pmksy.gov.in"
+                                     }
+                    },
+                    {
+                        "document":  "Crop Rotation, Green Manuring, and Bio-fertilizers\nEcological Soil Fertility Management: â¢ Legume Crop Rotation: Alternate exhaustive cereal crops (paddy, wheat, maize) with pulses (gram, moong, cowpea) to fix 30-50 kg/ha atmospheric Nitrogen. â¢ In-Situ Green Manuring: Sow Dhaincha (Sesbania aculeata) or Sunnhemp (Crotalaria juncea) at onset of pre-monsoon rains. Incorporate into soil at 45-50 days before flowering to add 15-20 tons/ha green biomass. â¢ Bio-fertilizer Inoculation: Use Rhizobium for pulses, Azospirillum / Azotobacter for cereals, and Phosphate Solubilizing Bacteria (PSB) to unlock insoluble soil phosphorus.",
+                        "id":  "doc_practice_002_c0",
+                        "metadata":  {
+                                         "title":  "Crop Rotation, Green Manuring, and Bio-fertilizers",
+                                         "official_url":  "https://pgsindia-ncof.gov.in",
+                                         "guardrail_notice":  "Do not mix bio-fertilizers with chemical fungicides or synthetic chemical fertilizers during seed treatment.",
+                                         "soil_types_applicable":  "alluvial, black, red, laterite, sandy",
+                                         "chunk_index":  0,
+                                         "category":  "farming_practices",
+                                         "verification_status":  "verified_curated",
+                                         "source_name":  "ICAR â National Centre for Organic Farming (NCOF)",
+                                         "tags":  "crop_rotation, green_manure, dhaincha, rhizobium, azospirillum, psb",
+                                         "organization":  "National Organic \u0026 Bio-fertilizer Institute"
+                                     }
+                    },
+                    {
+                        "document":  "Kisan Call Centre FAQ: Urea Split Dosing \u0026 Balanced N-P-K Application\nKCC Advisory â Fertilizer Application Timing: â¢ Why Split Urea: Applying entire nitrogen at once causes up to 60% loss through leaching, ammonia volatilization, and denitrification, while burning young plant roots. â¢ Cereals Practice: Apply full P and K at sowing/transplanting as basal dose. Split Nitrogen into 3 equal doses: 1/3 basal, 1/3 at tillering (21-25 days), and 1/3 at panicle/flag-leaf initiation. â¢ Neem-Coated Urea (NCU): Always prefer NCU which slows nitrification and reduces nitrogen leaching.",
+                        "id":  "doc_practice_003_c0",
+                        "metadata":  {
+                                         "category":  "farming_practices",
+                                         "crops_applicable":  "paddy, wheat, maize, sugarcane",
+                                         "tags":  "urea, split_dosing, npk, fertilizer_management, kcc_faq",
+                                         "chunk_index":  0,
+                                         "organization":  "Department of Agriculture \u0026 Farmers Welfare (DAC\u0026FW)",
+                                         "title":  "Kisan Call Centre FAQ: Urea Split Dosing \u0026 Balanced N-P-K Application",
+                                         "source_name":  "Kisan Call Centre â National Farmer Helpline (1800-180-1551)",
+                                         "verification_status":  "verified_curated",
+                                         "guardrail_notice":  "Never top-dress nitrogen fertilizer when crop leaves are wet to avoid direct foliar scorching.",
+                                         "official_url":  "https://dackkms.gov.in",
+                                         "soil_types_applicable":  "alluvial, loamy, clay_loam, black"
+                                     }
+                    },
+                    {
+                        "document":  "PM-KISAN (Pradhan Mantri Kisan Samman Nidhi) Income Support\nPM-KISAN Operational Guidelines: â¢ Benefit: Direct benefit cash transfer of Rs. 6,000 per financial year released in three equal four-monthly installments of Rs. 2,000 each. â¢ Eligibility: All landholding farmer families with cultivable land parcels in their name. â¢ Mandatory Steps: (1) Aadhaar-seeded active bank account, (2) Aadhaar e-KYC completed on pmkisan.gov.in or CSC biometric center, (3) Land record seeding verified by state revenue authority. â¢ Official Portal: pmkisan.gov.in (Helpline: 155261 / 011-24300606).",
+                        "id":  "doc_scheme_001_c0",
+                        "metadata":  {
+                                         "official_url":  "https://pmkisan.gov.in",
+                                         "chunk_index":  0,
+                                         "guardrail_notice":  "Eligibility and fund release is subject to state land verification. The assistant cannot approve or disburse funds.",
+                                         "title":  "PM-KISAN (Pradhan Mantri Kisan Samman Nidhi) Income Support",
+                                         "source_name":  "Ministry of Agriculture \u0026 Farmers Welfare â PM-KISAN Division",
+                                         "verification_status":  "verified_curated",
+                                         "tags":  "pm_kisan, subsidy, dbt, pmkisan, income_support, landholding",
+                                         "organization":  "Central Government Scheme Directorate",
+                                         "category":  "government_schemes"
+                                     }
+                    },
+                    {
+                        "document":  "PMFBY (Pradhan Mantri Fasal Bima Yojana) Comprehensive Crop Insurance\nPradhan Mantri Fasal Bima Yojana (PMFBY): â¢ Risk Coverage: Comprehensive insurance against non-preventable natural risks (drought, flood, unseasonal rain, pests, diseases, hailstorm, post-harvest cyclone damage up to 14 days). â¢ Low Farmer Premium Rates: Maximum 2.0% of sum insured for Kharif food crops/oilseeds, 1.5% for Rabi crops, and 5.0% for annual commercial/horticultural crops. â¢ Enrolment: Available via Primary Agricultural Credit Societies (PACS), commercial banks, CSCs, or directly via National Crop Insurance Portal (pmfby.gov.in). â¢ Claim Intimation: Must report localized loss",
+                        "id":  "doc_scheme_002_c0",
+                        "metadata":  {
+                                         "chunk_index":  0,
+                                         "source_name":  "Ministry of Agriculture \u0026 Farmers Welfare â PMFBY Cell",
+                                         "category":  "government_schemes",
+                                         "official_url":  "https://pmfby.gov.in",
+                                         "guardrail_notice":  "Enrolment cut-off dates are strictly seasonal and notified by each state government.",
+                                         "tags":  "pmfby, crop_insurance, fasal_bima, premium, loss_assessment, drought, flood",
+                                         "organization":  "Central Crop Insurance Directorate",
+                                         "title":  "PMFBY (Pradhan Mantri Fasal Bima Yojana) Comprehensive Crop Insurance",
+                                         "crops_applicable":  "paddy, wheat, cotton, maize, soybean, groundnut",
+                                         "verification_status":  "verified_curated"
+                                     }
+                    },
+                    {
+                        "document":  "PMFBY (Pradhan Mantri Fasal Bima Yojana) Comprehensive Crop Insurance\nSocieties (PACS), commercial banks, CSCs, or directly via National Crop Insurance Portal (pmfby.gov.in). â¢ Claim Intimation: Must report localized loss (hailstorm, inundation) within 72 hours via the Crop Insurance App or toll-free helpline 14447.",
+                        "id":  "doc_scheme_002_c1",
+                        "metadata":  {
+                                         "official_url":  "https://pmfby.gov.in",
+                                         "category":  "government_schemes",
+                                         "verification_status":  "verified_curated",
+                                         "title":  "PMFBY (Pradhan Mantri Fasal Bima Yojana) Comprehensive Crop Insurance",
+                                         "guardrail_notice":  "Enrolment cut-off dates are strictly seasonal and notified by each state government.",
+                                         "tags":  "pmfby, crop_insurance, fasal_bima, premium, loss_assessment, drought, flood",
+                                         "organization":  "Central Crop Insurance Directorate",
+                                         "crops_applicable":  "paddy, wheat, cotton, maize, soybean, groundnut",
+                                         "chunk_index":  1,
+                                         "source_name":  "Ministry of Agriculture \u0026 Farmers Welfare â PMFBY Cell"
+                                     }
+                    },
+                    {
+                        "document":  "PMKSY Micro-Irrigation (Per Drop More Crop) Capital Subsidies\nPMKSY - Per Drop More Crop (Micro-Irrigation Subsidy): â¢ Subsidy Norms: Small and Marginal Farmers (landholding up to 2 hectares / 5 acres) receive up to 55% capital cost subsidy from Central/State funds, with many states adding top-up subsidies reaching 70% to 100% for SC/ST and small farmers. Other farmers receive up to 45%. â¢ Eligible Equipment: Drip irrigation systems, micro-sprinklers, portable sprinklers, rain-guns. â¢ Documents Required: Land record (Patta/Chitta/RTC/7-12), Aadhaar, Water source verification, Bank passbook copy. â¢ Application: Submit",
+                        "id":  "doc_scheme_003_c0",
+                        "metadata":  {
+                                         "category":  "government_schemes",
+                                         "verification_status":  "verified_curated",
+                                         "source_name":  "Ministry of Agriculture \u0026 Farmers Welfare â PMKSY Division",
+                                         "guardrail_notice":  "Subsidies are disbursed through approved vendor installations subject to physical field inspection.",
+                                         "official_url":  "https://pmksy.gov.in",
+                                         "organization":  "Central Irrigation Mission",
+                                         "chunk_index":  0,
+                                         "tags":  "pmksy, drip_subsidy, micro_irrigation, sprinkler_subsidy, subsidy",
+                                         "crops_applicable":  "tomato, sugarcane, cotton, banana, chili",
+                                         "title":  "PMKSY Micro-Irrigation (Per Drop More Crop) Capital Subsidies"
+                                     }
+                    },
+                    {
+                        "document":  "PMKSY Micro-Irrigation (Per Drop More Crop) Capital Subsidies\nmicro-sprinklers, portable sprinklers, rain-guns. â¢ Documents Required: Land record (Patta/Chitta/RTC/7-12), Aadhaar, Water source verification, Bank passbook copy. â¢ Application: Submit via state horticulture or agriculture portal (e.g., Uzhavan in TN, Raitha Siri in Karnataka).",
+                        "id":  "doc_scheme_003_c1",
+                        "metadata":  {
+                                         "verification_status":  "verified_curated",
+                                         "source_name":  "Ministry of Agriculture \u0026 Farmers Welfare â PMKSY Division",
+                                         "official_url":  "https://pmksy.gov.in",
+                                         "chunk_index":  1,
+                                         "category":  "government_schemes",
+                                         "title":  "PMKSY Micro-Irrigation (Per Drop More Crop) Capital Subsidies",
+                                         "organization":  "Central Irrigation Mission",
+                                         "tags":  "pmksy, drip_subsidy, micro_irrigation, sprinkler_subsidy, subsidy",
+                                         "guardrail_notice":  "Subsidies are disbursed through approved vendor installations subject to physical field inspection.",
+                                         "crops_applicable":  "tomato, sugarcane, cotton, banana, chili"
+                                     }
+                    },
+                    {
+                        "document":  "Kisan Credit Card (KCC) Concessional Agricultural Credit\nKisan Credit Card (KCC) Guidelines: â¢ Purpose: Meets short-term credit requirements for cultivation, post-harvest expenses, produce marketing, working capital for farm maintenance, and allied activities. â¢ Concessional Interest Rate: Subsidized with 2% interest subvention and 3% prompt repayment incentive, bringing the effective interest rate to just 4% per annum for prompt payers up to Rs. 3 Lakhs. â¢ Collateral-Free Limit: Loans up to Rs. 1.6 Lakh are collateral-free. â¢ How to Apply: Visit nearest commercial bank, Regional Rural Bank (RRB),",
+                        "id":  "doc_scheme_004_c0",
+                        "metadata":  {
+                                         "organization":  "National Bank for Agriculture and Rural Development",
+                                         "verification_status":  "verified_curated",
+                                         "category":  "government_schemes",
+                                         "chunk_index":  0,
+                                         "title":  "Kisan Credit Card (KCC) Concessional Agricultural Credit",
+                                         "official_url":  "https://www.nabard.org",
+                                         "source_name":  "Reserve Bank of India \u0026 NABARD â Priority Sector Lending",
+                                         "tags":  "kcc, kisan_credit_card, loan, interest_subvention, short_term_credit",
+                                         "guardrail_notice":  "Sanction of credit limits is based on scale of finance fixed by the District Level Technical Committee (DLTC)."
+                                     }
+                    },
+                    {
+                        "document":  "Kisan Credit Card (KCC) Concessional Agricultural Credit\nLoans up to Rs. 1.6 Lakh are collateral-free. â¢ How to Apply: Visit nearest commercial bank, Regional Rural Bank (RRB), or Primary Agricultural Cooperative Society (PACS) with land record and Aadhaar.",
+                        "id":  "doc_scheme_004_c1",
+                        "metadata":  {
+                                         "tags":  "kcc, kisan_credit_card, loan, interest_subvention, short_term_credit",
+                                         "official_url":  "https://www.nabard.org",
+                                         "guardrail_notice":  "Sanction of credit limits is based on scale of finance fixed by the District Level Technical Committee (DLTC).",
+                                         "title":  "Kisan Credit Card (KCC) Concessional Agricultural Credit",
+                                         "category":  "government_schemes",
+                                         "organization":  "National Bank for Agriculture and Rural Development",
+                                         "chunk_index":  1,
+                                         "verification_status":  "verified_curated",
+                                         "source_name":  "Reserve Bank of India \u0026 NABARD â Priority Sector Lending"
+                                     }
+                    },
+                    {
+                        "document":  "Agmarknet \u0026 e-NAM Mandi Price Discovery and Market Advisory\nAgricultural Marketing \u0026 Price Discovery Guidance: â¢ Daily Price Verification: Mandi wholesale prices fluctuate daily based on arrivals, moisture level, and quality grade. Farmers must verify authentic daily modal rates on Agmarknet (agmarknet.gov.in) and e-NAM (enam.gov.in). â¢ Cleaning \u0026 Grading: Clean, sort, and grade produce before transporting to the mandi. Quality-graded lots systematically secure 10% to 25% higher bids than mixed produce. â¢ Avoiding Distress Sales: During peak harvest market gluts, use WDRA-accredited warehouses to store produce and access negotiable",
+                        "id":  "doc_market_001_c0",
+                        "metadata":  {
+                                         "guardrail_notice":  "Live mandi rates vary continuously by hour and location. Always consult local APMC mandis or official Agmarknet portal for today\u0027s authentic transactions.",
+                                         "organization":  "Ministry of Agriculture \u0026 Farmers Welfare",
+                                         "source_name":  "Directorate of Marketing \u0026 Inspection (DMI) â Agmarknet \u0026 e-NAM",
+                                         "title":  "Agmarknet \u0026 e-NAM Mandi Price Discovery and Market Advisory",
+                                         "chunk_index":  0,
+                                         "verification_status":  "verified_curated",
+                                         "crops_applicable":  "tomato, paddy, wheat, cotton, banana, chili, onion",
+                                         "tags":  "market_prices, mandi_rates, agmarknet, enam, msp, grading, wdra, storage",
+                                         "official_url":  "https://agmarknet.gov.in",
+                                         "category":  "market_prices"
+                                     }
+                    },
+                    {
+                        "document":  "Agmarknet \u0026 e-NAM Mandi Price Discovery and Market Advisory\nmixed produce. â¢ Avoiding Distress Sales: During peak harvest market gluts, use WDRA-accredited warehouses to store produce and access negotiable warehouse receipt (e-NWR) loan financing up to 70% of crop value. â¢ Minimum Support Price (MSP): For notified crops (e.g., paddy, wheat, cotton), check active government procurement centers and Fair Average Quality (FAQ) parameters before selling below MSP.",
+                        "id":  "doc_market_001_c1",
+                        "metadata":  {
+                                         "official_url":  "https://agmarknet.gov.in",
+                                         "chunk_index":  1,
+                                         "title":  "Agmarknet \u0026 e-NAM Mandi Price Discovery and Market Advisory",
+                                         "category":  "market_prices",
+                                         "verification_status":  "verified_curated",
+                                         "crops_applicable":  "tomato, paddy, wheat, cotton, banana, chili, onion",
+                                         "tags":  "market_prices, mandi_rates, agmarknet, enam, msp, grading, wdra, storage",
+                                         "organization":  "Ministry of Agriculture \u0026 Farmers Welfare",
+                                         "guardrail_notice":  "Live mandi rates vary continuously by hour and location. Always consult local APMC mandis or official Agmarknet portal for today\u0027s authentic transactions.",
+                                         "source_name":  "Directorate of Marketing \u0026 Inspection (DMI) â Agmarknet \u0026 e-NAM"
+                                     }
+                    },
+                    {
+                        "document":  "Kisan Call Centre FAQ: Minimum Support Price (MSP) \u0026 Mandi Quality Standards\nKCC Farmer Advisory â Mandi Procurement under MSP: â¢ What is MSP: Government guarantees a floor purchase price for 23 notified crops (cereals, pulses, oilseeds, commercial crops) to protect farmers from post-harvest price collapse. â¢ Fair Average Quality (FAQ) Norms: Procurement centers (FCI, NAFED, CCI) inspect moisture level (e.g., max 17% for paddy, 12% for wheat) and foreign matter before accepting produce. â¢ Mandatory Documents: Pre-register on your state procurement portal with Aadhaar, land record (Girdawari / Chitta), and IFSC",
+                        "id":  "doc_market_002_c0",
+                        "metadata":  {
+                                         "source_name":  "Kisan Call Centre â National Farmer Helpline (1800-180-1551)",
+                                         "official_url":  "https://dackkms.gov.in",
+                                         "guardrail_notice":  "MSP procurement centers only accept produce meeting FAQ quality specifications. Clean and dry grain before arriving at the center.",
+                                         "tags":  "msp, mandi_procurement, fair_average_quality, faq_norms, kcc_faq",
+                                         "verification_status":  "verified_curated",
+                                         "title":  "Kisan Call Centre FAQ: Minimum Support Price (MSP) \u0026 Mandi Quality Standards",
+                                         "category":  "market_prices",
+                                         "organization":  "Department of Agriculture \u0026 Farmers Welfare (DAC\u0026FW)",
+                                         "crops_applicable":  "paddy, wheat, cotton, pulses, oilseeds",
+                                         "chunk_index":  0
+                                     }
+                    },
+                    {
+                        "document":  "Kisan Call Centre FAQ: Minimum Support Price (MSP) \u0026 Mandi Quality Standards\naccepting produce. â¢ Mandatory Documents: Pre-register on your state procurement portal with Aadhaar, land record (Girdawari / Chitta), and IFSC bank account details.",
+                        "id":  "doc_market_002_c1",
+                        "metadata":  {
+                                         "category":  "market_prices",
+                                         "tags":  "msp, mandi_procurement, fair_average_quality, faq_norms, kcc_faq",
+                                         "guardrail_notice":  "MSP procurement centers only accept produce meeting FAQ quality specifications. Clean and dry grain before arriving at the center.",
+                                         "organization":  "Department of Agriculture \u0026 Farmers Welfare (DAC\u0026FW)",
+                                         "title":  "Kisan Call Centre FAQ: Minimum Support Price (MSP) \u0026 Mandi Quality Standards",
+                                         "source_name":  "Kisan Call Centre â National Farmer Helpline (1800-180-1551)",
+                                         "crops_applicable":  "paddy, wheat, cotton, pulses, oilseeds",
+                                         "verification_status":  "verified_curated",
+                                         "official_url":  "https://dackkms.gov.in",
+                                         "chunk_index":  1
+                                     }
+                    }
+                ],
+    "count":  35,
+    "collection":  "agricultural_knowledge"
+}

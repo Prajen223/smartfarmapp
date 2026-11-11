@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { forwardToBackend } from "../_lib/proxy";
+import { forwardToBackend, getBackendBaseUrl } from "../_lib/proxy";
 
 export async function GET() {
     try {
@@ -10,7 +10,7 @@ export async function GET() {
         return NextResponse.json(
             {
                 status: "unreachable",
-                detail: "Cannot connect to FastAPI on port 6000",
+                detail: `Cannot connect to FastAPI at ${getBackendBaseUrl()}`,
             },
             { status: 502 }
         );

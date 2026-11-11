@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FarmSaathi - Offline</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(180deg, #ecfdf5 0%, #ffffff 50%, #f0fdf4 100%);
+      color: #064e3b;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid #d1fae5;
+      border-radius: 1.5rem;
+      padding: 2rem 1.5rem;
+      max-width: 24rem;
+      width: 100%;
+      box-shadow: 0 10px 25px -5px rgba(6, 78, 59, 0.08);
+    }
+    .icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #064e3b;
+      margin-bottom: 0.5rem;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 9999px;
+      background: #d97706;
+    }
+    p {
+      font-size: 0.875rem;
+      color: #4b5563;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+    }
+    .btn {
+      display: inline-block;
+      width: 100%;
+      background: #047857;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.75rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 6px -1px rgba(4, 120, 87, 0.2);
+      transition: background 0.2s;
+    }
+    .btn:hover { background: #065f46; }
+    .subtext {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">🌾</div>
+    <div class="badge">
+      <span class="dot"></span>
+      <span>Offline Mode</span>
+    </div>
+    <h1>FarmSaathi</h1>
+    <p>Offline — reconnect to ask new questions.</p>
+    <p style="font-size: 0.8rem; color: #047857; margin-top: -0.5rem;">ऑफ़लाइन — नए सवाल पूछने के लिए इंटरनेट से दोबारा जुड़ें।</p>
+    <button class="btn" onclick="window.location.reload()">Retry Connection</button>
+    <div class="subtext">Previously loaded conversations remain safely accessible in the app.</div>
+  </div>
+</body>
+</html>

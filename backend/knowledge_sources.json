@@ -1,0 +1,335 @@
+{
+    "_schema_version": "1.0",
+    "_note": "This file records the authoritative sources behind each KB topic. Content in farming_kb.py is a curated summary derived from the categories these sources cover. URLs have not been fetched live; they are the official portals farmers should consult for current, specific guidance. Do not add a source here unless it is a real, publicly known official portal or institution.",
+    "_generated": "2026-10-14",
+    "_generated_by": "Smart Farming Assistant — Stage B knowledge curation",
+    "sources": [
+        {
+            "id": "src_001",
+            "name": "ICAR — Indian Council of Agricultural Research",
+            "short_name": "ICAR",
+            "organization_type": "Central Government Research Institute",
+            "url": "https://icar.gov.in",
+            "content_types": [
+                "crop_advisory",
+                "pest_control",
+                "irrigation"
+            ],
+            "coverage": "Crop-specific package of practices, IPM protocols, soil fertility recommendations, variety advisories for major Indian crops.",
+            "languages_available": [
+                "English",
+                "Hindi"
+            ],
+            "access_note": "Public website. Full package-of-practices PDFs available via individual ICAR institute sub-sites (e.g. IARI, NRRI, CICR). Content was not fetched live for this KB.",
+            "recommended_for": [
+                "crop_advisory",
+                "pest_control"
+            ]
+        },
+        {
+            "id": "src_002",
+            "name": "Kisan Call Centre — National Helpline 1800-180-1551",
+            "short_name": "KCC",
+            "organization_type": "Central Government Farmer Helpline",
+            "url": "https://dackkms.gov.in",
+            "content_types": [
+                "crop_advisory",
+                "pest_control",
+                "irrigation",
+                "government_schemes",
+                "market_prices"
+            ],
+            "coverage": "FAQ database compiled from farmer calls across all Indian states. Covers pest identification, irrigation scheduling, fertilizer queries and scheme eligibility.",
+            "languages_available": [
+                "Hindi",
+                "English",
+                "Tamil",
+                "Telugu",
+                "Kannada",
+                "Malayalam",
+                "Bengali",
+                "Others"
+            ],
+            "access_note": "KCC FAQ portal (dackkms.gov.in) is publicly accessible. FAQs were referenced for structure and topic coverage only; specific verbatim content was not copied.",
+            "recommended_for": [
+                "pest_control",
+                "crop_advisory",
+                "government_schemes"
+            ]
+        },
+        {
+            "id": "src_003",
+            "name": "Agmarknet — Agricultural Marketing Information Network",
+            "short_name": "Agmarknet",
+            "organization_type": "Central Government Portal (Ministry of Agriculture & Farmers Welfare)",
+            "url": "https://agmarknet.gov.in",
+            "content_types": [
+                "market_prices"
+            ],
+            "coverage": "Daily wholesale mandi prices for all regulated commodities across state APMCs. Searchable by crop, mandi, and state.",
+            "languages_available": [
+                "English"
+            ],
+            "access_note": "Live data portal. KB does not cache prices from this source; it only refers farmers to consult it for current rates.",
+            "recommended_for": [
+                "market_prices"
+            ]
+        },
+        {
+            "id": "src_004",
+            "name": "e-NAM — National Agriculture Market",
+            "short_name": "e-NAM",
+            "organization_type": "Central Government Digital Platform (SFAC / MoA&FW)",
+            "url": "https://enam.gov.in",
+            "content_types": [
+                "market_prices"
+            ],
+            "coverage": "Online trading platform for agricultural commodities. Provides price discovery, bids, and mandi integration across 1,000+ APMCs.",
+            "languages_available": [
+                "English",
+                "Hindi"
+            ],
+            "access_note": "Live platform. KB references this URL as an authoritative price source for farmers. No price data fetched.",
+            "recommended_for": [
+                "market_prices"
+            ]
+        },
+        {
+            "id": "src_005",
+            "name": "PM-KISAN — Pradhan Mantri Kisan Samman Nidhi Scheme Portal",
+            "short_name": "PM-KISAN",
+            "organization_type": "Central Government Scheme Portal (MoA&FW)",
+            "url": "https://pmkisan.gov.in",
+            "content_types": [
+                "government_schemes"
+            ],
+            "coverage": "Eligibility criteria, Aadhaar e-KYC process, beneficiary status check and installment details for the Rs. 6,000/year income-support scheme.",
+            "languages_available": [
+                "English",
+                "Hindi"
+            ],
+            "access_note": "Public portal. Scheme details summarised in KB are drawn from the publicly stated scheme guidelines as of the knowledge base creation date. Eligibility rules may change; farmers must verify on the portal.",
+            "recommended_for": [
+                "government_schemes"
+            ]
+        },
+        {
+            "id": "src_006",
+            "name": "PMFBY — Pradhan Mantri Fasal Bima Yojana Portal",
+            "short_name": "PMFBY",
+            "organization_type": "Central Government Scheme Portal (MoA&FW)",
+            "url": "https://pmfby.gov.in",
+            "content_types": [
+                "government_schemes"
+            ],
+            "coverage": "Season-wise cut-off dates, premium rates, claim process, and state-wise notified crops under the national crop insurance scheme.",
+            "languages_available": [
+                "English",
+                "Hindi"
+            ],
+            "access_note": "Public portal. Premium and eligibility details were not fetched live; farmers must check current season deadlines directly.",
+            "recommended_for": [
+                "government_schemes"
+            ]
+        },
+        {
+            "id": "src_007",
+            "name": "PMKSY — Pradhan Mantri Krishi Sinchayee Yojana (Per Drop More Crop)",
+            "short_name": "PMKSY-PDMC",
+            "organization_type": "Central Government Scheme (MoA&FW / MoJS)",
+            "url": "https://pmksy.gov.in",
+            "content_types": [
+                "government_schemes",
+                "irrigation"
+            ],
+            "coverage": "Subsidy rates for drip and sprinkler irrigation systems for different farmer categories (small, marginal, general, SC/ST). State-level implementation offices.",
+            "languages_available": [
+                "English",
+                "Hindi"
+            ],
+            "access_note": "Public portal. Subsidy percentages in KB (70–100%) reflect the broadly published scheme norms; state-level rates differ and must be verified locally.",
+            "recommended_for": [
+                "government_schemes",
+                "irrigation"
+            ]
+        },
+        {
+            "id": "src_008",
+            "name": "Soil Health Card Scheme — MoA&FW",
+            "short_name": "SHC",
+            "organization_type": "Central Government Scheme Portal",
+            "url": "https://soilhealth.dac.gov.in",
+            "content_types": [
+                "crop_advisory"
+            ],
+            "coverage": "Soil health card application, soil test results (12 parameters), recommended fertilizer dose per card, lab locations.",
+            "languages_available": [
+                "English",
+                "Hindi"
+            ],
+            "access_note": "Public portal. KB advises farmers to obtain Soil Health Cards before fertilizer application; no test data was fetched.",
+            "recommended_for": [
+                "crop_advisory"
+            ]
+        },
+        {
+            "id": "src_009",
+            "name": "Kisan Credit Card Scheme — NABARD / RBI Guidelines",
+            "short_name": "KCC",
+            "organization_type": "Reserve Bank of India / NABARD Policy",
+            "url": "https://www.nabard.org/content1.aspx?id=23&catid=8&mid=23",
+            "content_types": [
+                "government_schemes"
+            ],
+            "coverage": "KCC interest subvention rates, loan limits, eligible activities (crop production, post-harvest, allied), renewal process.",
+            "languages_available": [
+                "English"
+            ],
+            "access_note": "NABARD guidelines page. Interest subvention percentages change per annual RBI/GoI notification; values in KB are indicative only.",
+            "recommended_for": [
+                "government_schemes"
+            ]
+        },
+        {
+            "id": "src_010",
+            "name": "Uzhavan App — Tamil Nadu Department of Agriculture",
+            "short_name": "Uzhavan",
+            "organization_type": "State Government Digital Platform (Tamil Nadu)",
+            "url": "https://tnau.ac.in",
+            "content_types": [
+                "market_prices",
+                "government_schemes",
+                "crop_advisory"
+            ],
+            "coverage": "Tamil Nadu state-specific mandi prices, scheme applications, crop advisory notifications and AEO contact information for Tamil Nadu farmers.",
+            "languages_available": [
+                "Tamil",
+                "English"
+            ],
+            "access_note": "App and web portal. KB references this as Tamil Nadu farmers' primary official resource for prices and schemes. No data was fetched from it.",
+            "recommended_for": [
+                "market_prices",
+                "government_schemes"
+            ]
+        },
+        {
+            "id": "src_011",
+            "name": "TNAU Agritech Portal — Tamil Nadu Agricultural University",
+            "short_name": "TNAU Agritech",
+            "organization_type": "State Agricultural University (Tamil Nadu)",
+            "url": "https://agritech.tnau.ac.in",
+            "content_types": [
+                "crop_advisory",
+                "pest_control",
+                "irrigation"
+            ],
+            "coverage": "Package of practices for Tamil Nadu crops, IPM modules, soil management guides, post-harvest technology, all available in Tamil and English.",
+            "languages_available": [
+                "Tamil",
+                "English"
+            ],
+            "access_note": "Publicly accessible portal. Tamil-language guidance in farming_kb.py is structured using the categories covered here; specific text was authored for this KB and not copied verbatim.",
+            "recommended_for": [
+                "crop_advisory",
+                "pest_control",
+                "irrigation"
+            ]
+        },
+        {
+            "id": "src_012",
+            "name": "ICAR–NRRI — National Rice Research Institute",
+            "short_name": "ICAR-NRRI",
+            "organization_type": "ICAR Institute (Cuttack)",
+            "url": "https://nrri.icar.gov.in",
+            "content_types": [
+                "crop_advisory",
+                "pest_control",
+                "irrigation"
+            ],
+            "coverage": "Paddy/rice specific: variety recommendations, AWD (Alternate Wetting and Drying) water management, stem borer and blast management protocols.",
+            "languages_available": [
+                "English"
+            ],
+            "access_note": "Public ICAR institute site. AWD recommendation in KB is consistent with NRRI published guidance. Content was not fetched live.",
+            "recommended_for": [
+                "crop_advisory",
+                "pest_control"
+            ]
+        },
+        {
+            "id": "src_013",
+            "name": "CICR — Central Institute for Cotton Research (ICAR)",
+            "short_name": "ICAR-CICR",
+            "organization_type": "ICAR Institute (Nagpur)",
+            "url": "https://cicr.icar.gov.in",
+            "content_types": [
+                "crop_advisory",
+                "pest_control"
+            ],
+            "coverage": "Cotton-specific IPM: pink bollworm pheromone trap protocols, Bt cotton residue management, fertilizer schedules.",
+            "languages_available": [
+                "English"
+            ],
+            "access_note": "Public ICAR institute site. Cotton pest tips in KB align with broadly published CICR IPM recommendations.",
+            "recommended_for": [
+                "pest_control",
+                "crop_advisory"
+            ]
+        },
+        {
+            "id": "src_014",
+            "name": "Central Insecticides Board & Registration Committee (CIB&RC)",
+            "short_name": "CIB&RC",
+            "organization_type": "Central Government Regulatory Body (Ministry of Agriculture)",
+            "url": "https://cibrc.nic.in",
+            "content_types": [
+                "pest_control"
+            ],
+            "coverage": "Approved pesticide list, label claim verification, banned/restricted chemicals, MRL values. Referenced in KB pest control disclaimers.",
+            "languages_available": [
+                "English"
+            ],
+            "access_note": "Regulatory portal. KB instructs farmers to verify pesticide labels against CIB&RC approvals before any chemical application.",
+            "recommended_for": [
+                "pest_control"
+            ]
+        }
+    ],
+    "intent_source_mapping": {
+        "irrigation": [
+            "src_001",
+            "src_007",
+            "src_011",
+            "src_012"
+        ],
+        "pest_control": [
+            "src_001",
+            "src_002",
+            "src_011",
+            "src_012",
+            "src_013",
+            "src_014"
+        ],
+        "crop_advisory": [
+            "src_001",
+            "src_002",
+            "src_008",
+            "src_010",
+            "src_011",
+            "src_012",
+            "src_013"
+        ],
+        "market_prices": [
+            "src_003",
+            "src_004",
+            "src_010"
+        ],
+        "government_schemes": [
+            "src_005",
+            "src_006",
+            "src_007",
+            "src_009",
+            "src_010"
+        ]
+    }
+}
