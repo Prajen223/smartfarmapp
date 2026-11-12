@@ -5,6 +5,7 @@ export interface TranslationDictionary {
   tagline: string;
   online: string;
   offline: string;
+  connecting?: string;
   newChat: string;
   newChatConfirmTitle: string;
   newChatConfirmText: string;
@@ -57,6 +58,14 @@ export interface TranslationDictionary {
   feedbackThanks: string;
   feedbackCommentPlaceholder: string;
   feedbackSubmit: string;
+  savedGuidance?: string;
+  saveGuidance?: string;
+  guidanceSaved?: string;
+  removeSaved?: string;
+  noSavedGuidance?: string;
+  offlineBanner?: string;
+  offlineAdvisory?: string;
+  cachedBadge?: string;
 }
 
 export const translations: Record<SupportedLanguage, TranslationDictionary> = {
@@ -65,6 +74,7 @@ export const translations: Record<SupportedLanguage, TranslationDictionary> = {
     tagline: "Your Agricultural AI Voice Assistant",
     online: "Online",
     offline: "Offline",
+    connecting: "Connecting...",
     newChat: "New Chat",
     newChatConfirmTitle: "Start New Conversation?",
     newChatConfirmText: "This will clear the current conversation history and start a fresh farmer session.",
@@ -117,12 +127,21 @@ export const translations: Record<SupportedLanguage, TranslationDictionary> = {
     feedbackThanks: "Thank you for your feedback!",
     feedbackCommentPlaceholder: "How can we improve this answer? (optional)",
     feedbackSubmit: "Submit Feedback",
+    savedGuidance: "Saved Guidance",
+    saveGuidance: "Save Guidance",
+    guidanceSaved: "Saved Offline",
+    removeSaved: "Remove",
+    noSavedGuidance: "No saved agricultural guidance yet. Click the bookmark icon on any answer to save it for offline access.",
+    offlineBanner: "Offline — reconnect to ask new questions",
+    offlineAdvisory: "Live voice input, speech synthesis, and real-time mandi/weather data require an internet connection. You can still read past answers and browse your saved guidance.",
+    cachedBadge: "Saved Offline",
   },
   hi: {
     appName: "फार्मसाथी (FarmSaathi)",
     tagline: "आपका डिजिटल कृषि परामर्श साथी",
     online: "सक्रिय (ऑनलाइन)",
     offline: "ऑफ़लाइन",
+    connecting: "कनेक्ट हो रहा है...",
     newChat: "नयी बातचीत",
     newChatConfirmTitle: "नयी बातचीत शुरू करें?",
     newChatConfirmText: "इससे पिछली बातचीत साफ हो जाएगी और नया सत्र शुरू होगा।",
@@ -175,12 +194,21 @@ export const translations: Record<SupportedLanguage, TranslationDictionary> = {
     feedbackThanks: "आपकी प्रतिक्रिया के लिए धन्यवाद!",
     feedbackCommentPlaceholder: "हम इस उत्तर को कैसे बेहतर बना सकते हैं? (वैकल्पिक)",
     feedbackSubmit: "प्रतिक्रिया भेजें",
+    savedGuidance: "सहेजी गई सलाह",
+    saveGuidance: "सलाह सहेजें",
+    guidanceSaved: "ऑफ़लाइन सहेजा गया",
+    removeSaved: "हटाएं",
+    noSavedGuidance: "अभी तक कोई सहेजी गई सलाह नहीं है। किसी भी उत्तर पर बुकमार्क आइकन दबाकर ऑफ़लाइन उपयोग के लिए सहेजें।",
+    offlineBanner: "Offline — reconnect to ask new questions",
+    offlineAdvisory: "लाइव वॉइस इनपुट, ऑडियो और मंडी/मौसम जानकारी के लिए इंटरनेट आवश्यक है। आप पुरानी बातचीत और सहेजी गई सलाह पढ़ सकते हैं।",
+    cachedBadge: "ऑफ़लाइन सहेजा गया",
   },
   kn: {
     appName: "ಫಾರ್ಮ್‌ಸಾಥಿ (FarmSaathi)",
     tagline: "ನಿಮ್ಮ ಡಿಜಿಟಲ್ ಕೃಷಿ ಧ್ವನಿ ಸಹಾಯಕ",
     online: "ಆನ್‌ಲೈನ್",
     offline: "ಆಫ್‌ಲೈನ್",
+    connecting: "ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ...",
     newChat: "ಹೊಸ ಸಂಭಾಷಣೆ",
     newChatConfirmTitle: "ಹೊಸ ಸಂಭಾಷಣೆ ಪ್ರಾರಂಭಿಸಬೇಕೆ?",
     newChatConfirmText: "ಇದು ಹಿಂದಿನ ಸಂಭಾಷಣೆಯನ್ನು ಅಳಿಸಿ ಹೊಸ ರೈತ ಸಂವಾದವನ್ನು ಪ್ರಾರಂಭಿಸುತ್ತದೆ.",
@@ -233,5 +261,13 @@ export const translations: Record<SupportedLanguage, TranslationDictionary> = {
     feedbackThanks: "ನಿಮ್ಮ ಪ್ರತಿಕ್ರಿಯೆಗೆ ಧನ್ಯವಾದಗಳು!",
     feedbackCommentPlaceholder: "ಈ ಉತ್ತರವನ್ನು ಹೇಗೆ ಸುಧಾರಿಸಬಹುದು? (ಐಚ್ಛಿಕ)",
     feedbackSubmit: "ಪ್ರತಿಕ್ರಿಯೆ ಸಲ್ಲಿಸಿ",
+    savedGuidance: "ಉಳಿಸಿದ ಮಾರ್ಗದರ್ಶನ",
+    saveGuidance: "ಮಾರ್ಗದರ್ಶನ ಉಳಿಸಿ",
+    guidanceSaved: "ಆಫ್‌ಲೈನ್‌ನಲ್ಲಿ ಉಳಿಸಲಾಗಿದೆ",
+    removeSaved: "ತೆಗೆದುಹಾಕಿ",
+    noSavedGuidance: "ಇನ್ನೂ ಯಾವುದೇ ಉಳಿಸಿದ ಮಾರ್ಗದರ್ಶನವಿಲ್ಲ. ಆಫ್‌ಲೈನ್‌ನಲ್ಲಿ ಓದಲು ಯಾವುದೇ ಉತ್ತರದ ಮೇಲೆ ಬುಕ್‌ಮಾರ್ಕ್ ಕ್ಲಿಕ್ ಮಾಡಿ.",
+    offlineBanner: "Offline — reconnect to ask new questions",
+    offlineAdvisory: "ಧ್ವನಿ ಇನ್‌ಪುಟ್, ಆಡಿಯೊ ಮತ್ತು ಮಂಡಿ/ಹವಾಮಾನ ಮಾಹಿತಿಗೆ ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕ ಬೇಕು. ನೀವು ಹಿಂದಿನ ಸಂಭಾಷಣೆ ಮತ್ತು ಉಳಿಸಿದ ಸಲಹೆಗಳನ್ನು ಓದಬಹುದು.",
+    cachedBadge: "ಆಫ್‌ಲೈನ್‌ನಲ್ಲಿ ಉಳಿಸಲಾಗಿದೆ",
   },
 };

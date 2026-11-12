@@ -45,6 +45,7 @@ from voice_pipeline import voice_pipeline
 from sarvam_client import (
     SarvamError,
     SarvamAuthError,
+    SarvamQuotaError,
     SarvamTimeoutError,
     SarvamRateLimitError,
     SarvamAPIError,
@@ -321,11 +322,6 @@ def ask_farming_assistant(
         base_answer = kb_result["answer"]
     else:
         base_answer = rag_result["answer"]
-        if user_lang not in ("ta", "en"):
-            base_answer = (
-                f"[Language Note: Response provided in English as reliable local guidance is currently available in English and Tamil.]\n\n"
-                f"{base_answer}"
-            )
 
     # ── 8. Canonical Translation (English Answer -> User Language) ─────────
     translation = active_translation_service.run_pipeline(
@@ -335,6 +331,16 @@ def ask_farming_assistant(
     )
 
     final_answer = translation.answer_in_user_lang
+    # If guidance was requested in a non-native language (HI, KN, etc.) and real translation was not performed, provide transparent advisory
+    if (
+        user_lang not in ("ta", "en")
+        and active_translation_service.is_mock
+        and not getattr(getattr(translation, "answer_translation", None), "translation_performed", False)
+    ):
+        final_answer = (
+            f"[Language Note: Response provided in English as reliable local guidance is currently available in English and Tamil.]\n\n"
+            f"{final_answer}"
+        )
 
     # ── 9. Optional TTS Speech Synthesis ──────────────────────────────────
     audio_base64: Optional[str] = None
@@ -416,6 +422,12 @@ def _handle_voice_exception(exc: Exception) -> None:
         raise HTTPException(
             status_code=401,
             detail="Speech service authentication failed. Check configured credentials.",
+        )
+    if isinstance(exc, SarvamQuotaError):
+        logger.error("Sarvam quota exhausted: %s", exc)
+        raise HTTPException(
+            status_code=402,
+            detail="Sarvam AI speech service quota exhausted. Please recharge API credits in the Sarvam AI dashboard.",
         )
     if isinstance(exc, SarvamTimeoutError):
         logger.error("Sarvam timeout failure: %s", exc)
@@ -517,25 +529,37 @@ def ask_voice_json(
     if not user_query:
         raise HTTPException(status_code=400, detail="No intelligible speech detected in audio.")
 
-    detected_lang = stt_result.get("language_code", request.language_hint or "hi")
+    # Respect user's manually chosen language preference when provided
+    user_hint = (request.language_hint or "").strip().lower()
+    if user_hint in ("en", "hi", "kn", "ta", "te"):
+        target_lang = user_hint
+    else:
+        target_lang = stt_result.get("language_code") or "hi"
 
     ask_res = ask_farming_assistant(
         AskRequest(
             text=user_query,
             session_id=request.session_id,
-            preferred_language=detected_lang,
+            preferred_language=target_lang,
             mode="auto",
         ),
         http_request=http_request,
     )
 
+    tts_result: dict[str, Any] = {}
     try:
         tts_result = voice_pipeline.synthesize(
             text=ask_res["answer"],
-            language_code=detected_lang,
+            language_code=target_lang,
         )
     except Exception as exc:
-        _handle_voice_exception(exc)
+        logger.warning("TTS speech synthesis skipped due to service error: %s", exc)
+        tts_result = {
+            "audio_base64": None,
+            "format": "wav",
+            "provider": "unavailable",
+            "error": str(exc),
+        }
 
     return {
         "session_id": ask_res["session_id"],

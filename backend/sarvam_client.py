@@ -67,6 +67,11 @@ class SarvamAuthError(SarvamError):
     pass
 
 
+class SarvamQuotaError(SarvamError):
+    """Raised when the Sarvam AI API credit balance is exhausted or expired (HTTP 402)."""
+    pass
+
+
 class SarvamRateLimitError(SarvamError):
     """Raised when rate limits are exceeded (HTTP 429)."""
     pass
@@ -168,6 +173,8 @@ class SarvamClient:
 
         if response.status_code in (401, 403):
             raise SarvamAuthError(f"Sarvam authentication failed (status {response.status_code}): {response.text}")
+        if response.status_code == 402:
+            raise SarvamQuotaError("Sarvam AI account credit balance exhausted (HTTP 402).")
         if response.status_code == 429:
             raise SarvamRateLimitError("Sarvam API rate limit exceeded.")
 
@@ -312,6 +319,8 @@ class SarvamClient:
 
         if response.status_code in (401, 403):
             raise SarvamAuthError(f"Sarvam STT authentication failed: {response.text}")
+        if response.status_code == 402:
+            raise SarvamQuotaError("Sarvam AI account credit balance exhausted (HTTP 402).")
         if response.status_code == 429:
             raise SarvamRateLimitError("Sarvam STT rate limit exceeded.")
 
@@ -354,6 +363,14 @@ class SarvamClient:
 
         sarvam_lang = to_sarvam_lang(target_lang)
         speaker_name = speaker or DEFAULT_SPEAKERS.get(sarvam_lang, "ritu")
+
+        logger.info(
+            "Sarvam TTS request: lang=%s (%s), speaker=%s, chars=%d",
+            target_lang,
+            sarvam_lang,
+            speaker_name,
+            len(safe_text),
+        )
 
         url = f"{SARVAM_BASE_URL}/text-to-speech"
         headers = self._headers()
@@ -401,6 +418,8 @@ class SarvamClient:
 
         if response.status_code in (401, 403):
             raise SarvamAuthError(f"Sarvam TTS authentication failed: {response.text}")
+        if response.status_code == 402:
+            raise SarvamQuotaError("Sarvam AI account credit balance exhausted (HTTP 402).")
         if response.status_code == 429:
             raise SarvamRateLimitError("Sarvam TTS rate limit exceeded.")
 

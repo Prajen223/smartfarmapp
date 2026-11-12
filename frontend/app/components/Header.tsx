@@ -11,6 +11,7 @@ interface HeaderProps {
   onNewChat: () => void;
   hasMessages: boolean;
   isOffline?: boolean;
+  onOpenSavedGuidance?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -20,6 +21,7 @@ export const Header: React.FC<HeaderProps> = ({
   onNewChat,
   hasMessages,
   isOffline = false,
+  onOpenSavedGuidance,
 }) => {
   const t = translations[selectedLang];
   const isActuallyOnline = !isOffline && isBackendOnline;
@@ -66,7 +68,11 @@ export const Header: React.FC<HeaderProps> = ({
                   }`}
                 />
                 <span>
-                  {isActuallyOnline ? t.online : t.offline}
+                  {isOffline
+                    ? t.offline
+                    : !isBackendOnline
+                    ? (t.connecting || "Connecting...")
+                    : t.online}
                 </span>
               </span>
             </div>
@@ -99,6 +105,20 @@ export const Header: React.FC<HeaderProps> = ({
               </svg>
             </div>
           </div>
+
+          {/* Saved Guidance Button */}
+          {onOpenSavedGuidance && (
+            <button
+              type="button"
+              onClick={onOpenSavedGuidance}
+              className="flex items-center gap-1 rounded-xl border border-emerald-200 bg-emerald-50 px-2 sm:px-2.5 py-1 text-xs font-bold text-emerald-800 shadow-2xs transition hover:bg-emerald-100 hover:text-emerald-950 active:scale-95"
+              title={t.savedGuidance || "Saved Guidance"}
+              aria-label={t.savedGuidance || "Saved Guidance"}
+            >
+              <span>🔖</span>
+              <span className="hidden sm:inline">{t.savedGuidance || "Saved"}</span>
+            </button>
+          )}
 
           {/* New Chat Button */}
           {hasMessages && (

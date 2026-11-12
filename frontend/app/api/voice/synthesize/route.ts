@@ -5,11 +5,17 @@ export async function POST(request: Request) {
     try {
         const body = await request.json();
         const result = await forwardToBackend("/voice/synthesize", "POST", body);
-        return NextResponse.json(result.data, { status: result.status });
+        return NextResponse.json(result.data, {
+            status: result.status,
+            headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
+        });
     } catch {
         return NextResponse.json(
             { detail: `Unable to connect to the backend at ${getBackendBaseUrl()}.` },
-            { status: 502 }
+            {
+                status: 502,
+                headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
+            }
         );
     }
 }

@@ -7,6 +7,12 @@ import { WelcomeCard } from "./components/WelcomeCard";
 import { MessageItem } from "./components/MessageItem";
 import { ConfirmModal } from "./components/ConfirmModal";
 import { InstallBanner } from "./components/InstallBanner";
+import { SavedGuidanceModal } from "./components/SavedGuidanceModal";
+import {
+  saveLastConversation,
+  getLastConversation,
+  clearLastConversation,
+} from "./lib/offline-storage";
 import {
   SupportedLanguage,
   ChatMessage,
@@ -57,6 +63,26 @@ export default function Home() {
     return false;
   });
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
+  const [isSavedGuidanceModalOpen, setIsSavedGuidanceModalOpen] = useState(false);
+
+  // Restore conversation from IndexedDB if initial state was empty
+  useEffect(() => {
+    if (messages.length === 0) {
+      getLastConversation().then((cached) => {
+        if (cached && Array.isArray(cached.messages) && cached.messages.length > 0) {
+          const tagged = cached.messages.map((m) => ({ ...m, isCached: true }));
+          setMessages(tagged);
+          if (cached.sessionId && !sessionId) {
+            setSessionId(cached.sessionId);
+          }
+          if (cached.selectedLang) {
+            setSelectedLang(cached.selectedLang);
+          }
+        }
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Microphone and voice recording states
   const [voiceState, setVoiceState] = useState<VoiceState>("idle");
@@ -173,6 +199,10 @@ export default function Home() {
       } catch {
         // Storage quota exceeded or disabled
       }
+      // Asynchronously persist to browser IndexedDB for offline conversation restoration
+      saveLastConversation(next, sessionId, selectedLang).catch((err) => {
+        console.warn("[OfflineStorage] Could not persist to IndexedDB:", err);
+      });
       return next;
     });
   };
@@ -257,7 +287,15 @@ export default function Home() {
           });
 
           if (!synthRes.ok) {
-            throw new Error("Unable to synthesize audio.");
+            let detailMsg = "Spoken audio is currently unavailable. Please read the response text guidance.";
+            if (synthRes.status === 402) {
+              detailMsg = "Spoken audio unavailable: Sarvam AI credits exhausted. Please read the response text guidance.";
+            } else if (synthRes.status === 401) {
+              detailMsg = "Spoken audio unavailable: Sarvam AI credentials invalid. Please read the response text guidance.";
+            } else if (synthRes.status === 429) {
+              detailMsg = "Spoken audio rate limit reached. Please wait a moment.";
+            }
+            throw new Error(detailMsg);
           }
 
           const synthData = await synthRes.json();
@@ -276,7 +314,11 @@ export default function Home() {
           }
         } catch (synthErr) {
           console.warn("TTS synthesis fallback error:", synthErr);
-          setError("Unable to play spoken audio. Please read the response text.");
+          const errorMsg =
+            synthErr instanceof Error
+              ? synthErr.message
+              : "Spoken audio is currently unavailable. Please read the response text guidance.";
+          setError(errorMsg);
           setIsSynthesizingId(null);
           return;
         } finally {
@@ -294,8 +336,12 @@ export default function Home() {
             ? "audio/ogg"
             : "audio/wav";
 
-        // Convert base64 to binary ArrayBuffer -> Blob -> ObjectURL
-        const byteCharacters = atob(base64ToPlay.trim());
+        // Sanitize base64 string (strip data-URI header and whitespace if present)
+        const rawBase64 = base64ToPlay.includes(",")
+          ? base64ToPlay.split(",")[1]
+          : base64ToPlay;
+        const cleanBase64 = rawBase64.replace(/\s+/g, "");
+        const byteCharacters = atob(cleanBase64);
         const byteNumbers = new Uint8Array(byteCharacters.length);
         for (let i = 0; i < byteCharacters.length; i++) {
           byteNumbers[i] = byteCharacters.charCodeAt(i);
@@ -314,10 +360,16 @@ export default function Home() {
         };
 
         player.onerror = () => {
+          console.warn("Audio element error during playback");
           stopAudioPlayback();
         };
 
-        await player.play();
+        try {
+          await player.play();
+        } catch (playErr) {
+          console.warn("Autoplay or audio play restriction:", playErr);
+          stopAudioPlayback();
+        }
       } catch (err) {
         console.warn("Audio playback error:", err);
         stopAudioPlayback();
@@ -352,7 +404,7 @@ export default function Home() {
     setLoading(true);
 
     try {
-      const response = await fetch("/api/ask", {
+      let response = await fetch("/api/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -362,6 +414,25 @@ export default function Home() {
           mode: "auto",
         }),
       });
+
+      // If server is waking up from sleep (HTTP 502/503/504), perform one bounded retry after brief backoff
+      if (response.status >= 502 && response.status <= 504 && !isOffline) {
+        setError("FarmSaathi server is waking up, retrying your question in a moment...");
+        await new Promise((res) => setTimeout(res, 2500));
+        response = await fetch("/api/ask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            text: textToSend,
+            session_id: sessionId,
+            preferred_language: selectedLang,
+            mode: "auto",
+          }),
+        });
+        if (response.ok) {
+          setError(null);
+        }
+      }
 
       const data: ApiResponse = await response.json();
       if (!response.ok) {
@@ -433,38 +504,51 @@ export default function Home() {
       audioStreamRef.current = stream;
       audioChunksRef.current = [];
 
-      // Detect best supported audio MIME type
-      let mimeType = "audio/webm";
-      let fileExt = "webm";
+      // Detect best supported audio MIME type across browsers (Chrome, Safari, iOS, Android, Firefox)
+      const candidateTypes: Array<{ mime: string; ext: string }> = [
+        { mime: "audio/webm;codecs=opus", ext: "webm" },
+        { mime: "audio/webm", ext: "webm" },
+        { mime: "audio/ogg;codecs=opus", ext: "ogg" },
+        { mime: "audio/mp4", ext: "mp4" },
+        { mime: "audio/aac", ext: "aac" },
+        { mime: "audio/wav", ext: "wav" },
+      ];
+
+      let selectedCandidate: { mime: string; ext: string } | null = null;
       if (typeof MediaRecorder.isTypeSupported === "function") {
-        if (MediaRecorder.isTypeSupported("audio/webm;codecs=opus")) {
-          mimeType = "audio/webm;codecs=opus";
-          fileExt = "webm";
-        } else if (MediaRecorder.isTypeSupported("audio/webm")) {
-          mimeType = "audio/webm";
-          fileExt = "webm";
-        } else if (MediaRecorder.isTypeSupported("audio/ogg;codecs=opus")) {
-          mimeType = "audio/ogg;codecs=opus";
-          fileExt = "ogg";
-        } else if (MediaRecorder.isTypeSupported("audio/mp4")) {
-          mimeType = "audio/mp4";
-          fileExt = "mp4";
+        for (const candidate of candidateTypes) {
+          if (MediaRecorder.isTypeSupported(candidate.mime)) {
+            selectedCandidate = candidate;
+            break;
+          }
         }
       }
-      recordingFormatRef.current = { mimeType, fileExt };
 
-      // Low-bandwidth speech optimization: 24 kbps opus is ideal for speech compression
-      const recorderOptions: MediaRecorderOptions = {
-        mimeType,
-        audioBitsPerSecond: 24000,
-      };
+      const mimeType = selectedCandidate ? selectedCandidate.mime : "";
+      const fileExt = selectedCandidate ? selectedCandidate.ext : "wav";
+      recordingFormatRef.current = { mimeType: mimeType || "audio/webm", fileExt };
 
       let mediaRecorder: MediaRecorder;
       try {
-        mediaRecorder = new MediaRecorder(stream, recorderOptions);
+        if (mimeType) {
+          mediaRecorder = new MediaRecorder(stream, {
+            mimeType,
+            audioBitsPerSecond: 24000,
+          });
+        } else {
+          mediaRecorder = new MediaRecorder(stream);
+        }
       } catch {
-        // Fallback without explicit bitrate if browser rejects options
-        mediaRecorder = new MediaRecorder(stream, { mimeType });
+        try {
+          if (mimeType) {
+            mediaRecorder = new MediaRecorder(stream, { mimeType });
+          } else {
+            mediaRecorder = new MediaRecorder(stream);
+          }
+        } catch {
+          // Native browser recorder without custom options (safest for mobile Safari)
+          mediaRecorder = new MediaRecorder(stream);
+        }
       }
 
       mediaRecorderRef.current = mediaRecorder;
@@ -571,9 +655,9 @@ export default function Home() {
           return;
         }
 
-        // 30-second network abort controller for slow rural connections
+        // 45-second network abort controller for slow rural connections and cold starts
         const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 30000);
+        const timeoutId = setTimeout(() => controller.abort(), 45000);
 
         try {
           const response = await fetch("/api/ask-voice", {
@@ -701,6 +785,8 @@ export default function Home() {
     setRecordingSeconds(0);
     setIsConfirmModalOpen(false);
 
+    clearLastConversation().catch(() => {});
+
     try {
       sessionStorage.removeItem("farmsaathi_messages");
       sessionStorage.removeItem("farmsaathi_session_id");
@@ -720,13 +806,29 @@ export default function Home() {
       {isOffline && (
         <div
           role="status"
-          className="bg-amber-600 text-white px-3 py-1.5 text-xs text-center font-bold shadow-xs animate-fade-in flex items-center justify-center gap-1.5"
+          className="bg-amber-600 text-white px-3 sm:px-4 py-2 text-xs font-bold shadow-xs animate-fade-in"
         >
-          <span>⚠️</span>
-          <span>Offline — reconnect to ask new questions.</span>
-          <span className="hidden sm:inline text-amber-100 font-normal">
-            (ऑफ़लाइन — नए सवाल पूछने के लिए दोबारा जुड़ें)
-          </span>
+          <div className="mx-auto max-w-4xl flex flex-col sm:flex-row items-center justify-between gap-1.5 text-center sm:text-left">
+            <div className="flex items-center gap-1.5 flex-wrap justify-center sm:justify-start">
+              <span className="text-sm">⚠️</span>
+              <span className="font-extrabold uppercase tracking-wide">
+                Offline — reconnect to ask new questions
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setIsSavedGuidanceModalOpen(true)}
+                className="rounded-lg bg-amber-700/80 hover:bg-amber-800 px-2 py-0.5 text-2xs text-amber-100 font-bold border border-amber-500/60 transition"
+              >
+                🔖 {t.savedGuidance || "Saved Guidance"}
+              </button>
+            </div>
+          </div>
+          <p className="mx-auto max-w-4xl text-[10px] text-amber-100 font-normal mt-0.5 text-center sm:text-left">
+            {t.offlineAdvisory ||
+              "Live voice input, speech synthesis (Sarvam AI), and real-time mandi/weather data require an internet connection. You can still read past answers and browse your saved guidance."}
+          </p>
         </div>
       )}
 
@@ -738,6 +840,7 @@ export default function Home() {
         onNewChat={() => setIsConfirmModalOpen(true)}
         hasMessages={messages.length > 0}
         isOffline={isOffline}
+        onOpenSavedGuidance={() => setIsSavedGuidanceModalOpen(true)}
       />
 
       {/* Main Conversation Feed */}
@@ -875,6 +978,13 @@ export default function Home() {
         isOpen={isConfirmModalOpen}
         onConfirm={handleConfirmNewChat}
         onCancel={() => setIsConfirmModalOpen(false)}
+        selectedLang={selectedLang}
+      />
+
+      {/* Saved Offline Guidance Modal */}
+      <SavedGuidanceModal
+        isOpen={isSavedGuidanceModalOpen}
+        onClose={() => setIsSavedGuidanceModalOpen(false)}
         selectedLang={selectedLang}
       />
     </div>

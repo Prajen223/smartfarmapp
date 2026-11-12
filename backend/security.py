@@ -492,6 +492,35 @@ class SecurityUserManager:
                 """)
                 conn.execute("CREATE INDEX IF NOT EXISTS idx_users_username ON users(username);")
 
+                # Automatic administrator seeding and synchronization for ephemeral environments (e.g. Render Free)
+                env_admin_user = (os.getenv("ADMIN_USERNAME") or os.getenv("DEFAULT_ADMIN_USERNAME") or "").strip()
+                env_admin_pass = (os.getenv("ADMIN_PASSWORD") or os.getenv("DEFAULT_ADMIN_PASSWORD") or "").strip()
+                if env_admin_user and env_admin_pass:
+                    cur = conn.cursor()
+                    cur.execute("SELECT user_id, hashed_password FROM users WHERE username = ?", (env_admin_user,))
+                    existing = cur.fetchone()
+                    if not existing:
+                        admin_id = str(uuid.uuid4())
+                        now_iso = datetime.datetime.now(datetime.timezone.utc).isoformat()
+                        hashed_pwd = PasswordManager.hash_password(env_admin_pass)
+                        conn.execute(
+                            """
+                            INSERT INTO users (user_id, username, hashed_password, role, created_at, is_active)
+                            VALUES (?, ?, ?, 'admin', ?, 1)
+                            """,
+                            (admin_id, env_admin_user, hashed_pwd, now_iso),
+                        )
+                        logger.info("Automatically initialized administrator account '%s' from environment.", env_admin_user)
+                    else:
+                        current_hash = existing["hashed_password"] if isinstance(existing, sqlite3.Row) else existing[1]
+                        if not PasswordManager.verify_password(env_admin_pass, current_hash):
+                            new_hash = PasswordManager.hash_password(env_admin_pass)
+                            conn.execute(
+                                "UPDATE users SET hashed_password = ? WHERE username = ?",
+                                (new_hash, env_admin_user),
+                            )
+                            logger.info("Synchronized administrator credentials for '%s' from environment.", env_admin_user)
+
     def register_user(
         self,
         username: str,

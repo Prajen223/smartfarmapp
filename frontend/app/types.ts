@@ -118,6 +118,22 @@ export interface ChatMessage {
   sessionId?: string;
   feedbackRating?: "positive" | "negative";
   feedbackComment?: string;
+  isCached?: boolean;
+}
+
+export interface SavedGuidanceItem {
+  id: string;
+  messageId?: string;
+  question: string;
+  answer: string;
+  sources?: string[];
+  intent?: string;
+  confidence?: number;
+  language?: string;
+  savedAt: string;
+  lastUpdatedDate?: string;
+  retrievedDocuments?: RetrievedDocument[];
+  adapterData?: AdapterData;
 }
 
 export type VoiceState = "idle" | "recording" | "processing";

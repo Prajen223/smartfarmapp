@@ -12,16 +12,25 @@ export async function POST(request: Request) {
             const detail = typeof dataObj?.detail === "string" && dataObj.detail
                 ? dataObj.detail
                 : "The farming assistant backend is temporarily unavailable or restarting. Please try again in a few moments.";
-            return NextResponse.json({ detail }, { status: result.status });
+            return NextResponse.json({ detail }, {
+                status: result.status,
+                headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
+            });
         }
 
-        return NextResponse.json(result.data, { status: result.status });
+        return NextResponse.json(result.data, {
+            status: result.status,
+            headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
+        });
     } catch {
         return NextResponse.json(
             {
                 detail: `Unable to connect to the backend at ${getBackendBaseUrl()}. Please ensure FastAPI is running.`,
             },
-            { status: 502 }
+            {
+                status: 502,
+                headers: { "Cache-Control": "no-store, no-cache, must-revalidate" },
+            }
         );
     }
 }

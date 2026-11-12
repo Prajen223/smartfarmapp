@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChatMessage, SupportedLanguage } from "../types";
 import { translations } from "../lib/translations";
+import { saveGuidanceItem, removeSavedGuidance, isGuidanceSaved } from "../lib/offline-storage";
 
 interface MessageItemProps {
   message: ChatMessage;
@@ -47,6 +48,36 @@ export const MessageItem: React.FC<MessageItemProps> = ({
   const [commentText, setCommentText] = useState(message.feedbackComment || "");
   const [submittingFeedback, setSubmittingFeedback] = useState(false);
   const [feedbackError, setFeedbackError] = useState<string | null>(null);
+
+  // Saved Offline Guidance state
+  const [isSaved, setIsSaved] = useState(false);
+  useEffect(() => {
+    if (isAssistant) {
+      isGuidanceSaved(message.id).then(setIsSaved);
+    }
+  }, [isAssistant, message.id]);
+
+  const handleToggleSave = async () => {
+    if (isSaved) {
+      await removeSavedGuidance(message.id);
+      setIsSaved(false);
+    } else {
+      await saveGuidanceItem({
+        id: message.id,
+        messageId: message.messageId,
+        question: message.transcript || (message.text.length > 80 ? message.text.slice(0, 80) + "..." : message.text),
+        answer: message.text,
+        sources: message.sources,
+        intent: message.intent,
+        confidence: message.confidence,
+        language: message.language,
+        savedAt: new Date().toISOString(),
+        retrievedDocuments: message.retrievedDocuments,
+        adapterData: message.adapterData,
+      });
+      setIsSaved(true);
+    }
+  };
 
   const handleSendFeedback = async (voteRating: "positive" | "negative", voteComment?: string) => {
     const effectiveSessionId =
@@ -134,6 +165,11 @@ export const MessageItem: React.FC<MessageItemProps> = ({
                 🎙️ Voice
               </span>
             )}
+            {message.isCached && (
+              <span className="rounded-full bg-emerald-100 border border-emerald-300 px-2 py-0.2 text-[10px] font-bold text-emerald-800">
+                💾 {t.cachedBadge || "Saved Offline"}
+              </span>
+            )}
           </div>
           <span>{message.timestamp}</span>
         </div>
@@ -151,52 +187,74 @@ export const MessageItem: React.FC<MessageItemProps> = ({
           {message.text}
         </div>
 
-        {/* Audio Listen Aloud Player (for Assistant Responses) */}
-        {isAssistant && onPlayAudio && (
-          <div className="mt-3 pt-2.5 border-t border-emerald-100/80 flex items-center justify-between">
-            <button
-              type="button"
-              onClick={() => onPlayAudio(message.id, message.text, message.audioBase64, message.audioFormat)}
-              disabled={isCurrentSynthesizing}
-              className={`flex items-center gap-2 rounded-xl px-3 py-1.5 text-xs font-bold transition shadow-2xs active:scale-95 disabled:opacity-60 ${
-                isCurrentAudioPlaying
-                  ? "bg-rose-100 text-rose-800 border border-rose-300"
-                  : isCurrentSynthesizing
-                  ? "bg-emerald-100 text-emerald-800 border border-emerald-300"
-                  : "bg-emerald-50 text-emerald-900 border border-emerald-200 hover:bg-emerald-100"
-              }`}
-              aria-label={
-                isCurrentAudioPlaying
-                  ? t.stopAudio
-                  : isCurrentSynthesizing
-                  ? t.synthesizingAudio
-                  : t.listenAloud
-              }
-            >
-              {isCurrentSynthesizing ? (
-                <>
-                  <svg className="h-3 w-3 animate-spin text-emerald-700" viewBox="0 0 24 24" fill="none">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
-                  </svg>
-                  <span>{t.synthesizingAudio}</span>
-                </>
-              ) : isCurrentAudioPlaying ? (
-                <>
-                  <span>⏹️</span>
-                  <span>{t.stopAudio}</span>
-                  <span className="flex h-1.5 w-1.5 rounded-full bg-rose-600 animate-ping ml-1" />
-                </>
-              ) : (
-                <>
-                  <span>🔊</span>
-                  <span>{t.listenAloud}</span>
-                </>
+        {/* Audio Listen Aloud Player & Bookmark Action (for Assistant Responses) */}
+        {isAssistant && (
+          <div className="mt-3 pt-2.5 border-t border-emerald-100/80 flex items-center justify-between flex-wrap gap-2">
+            <div className="flex items-center gap-2">
+              {onPlayAudio && (
+                <button
+                  type="button"
+                  onClick={() => onPlayAudio(message.id, message.text, message.audioBase64, message.audioFormat)}
+                  disabled={isCurrentSynthesizing}
+                  className={`flex items-center gap-2 rounded-xl px-3 py-1.5 text-xs font-bold transition shadow-2xs active:scale-95 disabled:opacity-60 ${
+                    isCurrentAudioPlaying
+                      ? "bg-rose-100 text-rose-800 border border-rose-300"
+                      : isCurrentSynthesizing
+                      ? "bg-emerald-100 text-emerald-800 border border-emerald-300"
+                      : "bg-emerald-50 text-emerald-900 border border-emerald-200 hover:bg-emerald-100"
+                  }`}
+                  aria-label={
+                    isCurrentAudioPlaying
+                      ? t.stopAudio
+                      : isCurrentSynthesizing
+                      ? t.synthesizingAudio
+                      : t.listenAloud
+                  }
+                >
+                  {isCurrentSynthesizing ? (
+                    <>
+                      <svg className="h-3 w-3 animate-spin text-emerald-700" viewBox="0 0 24 24" fill="none">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                      </svg>
+                      <span>{t.synthesizingAudio}</span>
+                    </>
+                  ) : isCurrentAudioPlaying ? (
+                    <>
+                      <span>⏹️</span>
+                      <span>{t.stopAudio}</span>
+                      <span className="flex h-1.5 w-1.5 rounded-full bg-rose-600 animate-ping ml-1" />
+                    </>
+                  ) : (
+                    <>
+                      <span>🔊</span>
+                      <span>{t.listenAloud}</span>
+                    </>
+                  )}
+                </button>
               )}
-            </button>
-            <span className="text-[10px] text-gray-400 font-medium">
-              Sarvam Bulbul TTS
-            </span>
+
+              {/* Bookmark / Save Offline Guidance Button */}
+              <button
+                type="button"
+                onClick={handleToggleSave}
+                className={`flex items-center gap-1.5 rounded-xl px-2.5 py-1.5 text-xs font-bold transition shadow-2xs active:scale-95 ${
+                  isSaved
+                    ? "bg-amber-100 text-amber-900 border border-amber-300"
+                    : "bg-emerald-50 text-emerald-900 border border-emerald-200 hover:bg-emerald-100"
+                }`}
+                aria-label={isSaved ? (t.guidanceSaved || "Saved Offline") : (t.saveGuidance || "Save Guidance")}
+              >
+                <span>{isSaved ? "🔖" : "📑"}</span>
+                <span>{isSaved ? (t.guidanceSaved || "Saved") : (t.saveGuidance || "Save")}</span>
+              </button>
+            </div>
+
+            {onPlayAudio && (
+              <span className="text-[10px] text-gray-400 font-medium">
+                Sarvam Bulbul TTS
+              </span>
+            )}
           </div>
         )}
 
