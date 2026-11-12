@@ -225,11 +225,25 @@ class NERResult(TypedDict):
 _hf_ner_pipeline: Optional[Any] = None
 
 
+def is_hf_ner_enabled() -> bool:
+    """Check if Hugging Face NER pipeline is enabled."""
+    model_name = os.getenv("HF_NER_MODEL", "dslim/bert-base-NER").strip()
+    if model_name.lower() in ("disabled", "false", "none", "off", "0", ""):
+        return False
+    return True
+
+
 def get_hf_ner():
-    """Lazily load Hugging Face token-classification / NER pipeline."""
+    """Lazily load Hugging Face token-classification / NER pipeline.
+
+    If HF_NER_MODEL is disabled, never imports transformers or downloads models.
+    """
     global _hf_ner_pipeline
     if _hf_ner_pipeline is None:
-        model_name = os.getenv("HF_NER_MODEL", "dslim/bert-base-NER")
+        if not is_hf_ner_enabled():
+            _hf_ner_pipeline = False
+            return None
+        model_name = os.getenv("HF_NER_MODEL", "dslim/bert-base-NER").strip()
         try:
             # pyrefly: ignore [missing-import]
             from transformers import pipeline

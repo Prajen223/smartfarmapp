@@ -20,7 +20,8 @@ export function forwardToBackend<T = unknown>(
     path: string,
     method: string,
     body?: unknown,
-    customHeaders?: Record<string, string>
+    customHeaders?: Record<string, string>,
+    timeoutMs: number = 30000
 ): Promise<ProxyResponse<T>> {
     return new Promise((resolve, reject) => {
         const rawBody = body ? JSON.stringify(body) : undefined;
@@ -62,14 +63,28 @@ export function forwardToBackend<T = unknown>(
                             data: parsed,
                         });
                     } catch {
-                        resolve({
-                            status: res.statusCode || 200,
-                            data: responseData as unknown as T,
-                        });
+                        const statusCode = res.statusCode || 200;
+                        if (statusCode >= 500) {
+                            resolve({
+                                status: statusCode,
+                                data: {
+                                    detail: "Backend server is temporarily unavailable or restarting. Please try again in a moment.",
+                                } as unknown as T,
+                            });
+                        } else {
+                            resolve({
+                                status: statusCode,
+                                data: responseData as unknown as T,
+                            });
+                        }
                     }
                 });
             }
         );
+
+        req.setTimeout(timeoutMs, () => {
+            req.destroy(new Error(`Request to FastAPI backend timed out after ${Math.round(timeoutMs / 1000)} seconds.`));
+        });
 
         req.on("error", (error) => {
             reject(error);

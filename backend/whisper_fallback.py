@@ -26,9 +26,16 @@ def is_whisper_enabled() -> bool:
 
 
 def get_whisper_pipeline():
-    """Lazily load Hugging Face Whisper ASR pipeline."""
+    """Lazily load Hugging Face Whisper ASR pipeline.
+
+    If ENABLE_WHISPER_FALLBACK is false, never imports transformers or downloads models.
+    """
     global _whisper_pipeline
     if _whisper_pipeline is None:
+        if not is_whisper_enabled():
+            logger.info("Whisper fallback disabled via ENABLE_WHISPER_FALLBACK=false.")
+            _whisper_pipeline = False
+            return None
         model_name = os.getenv("WHISPER_MODEL_NAME", "openai/whisper-tiny")
         try:
             from transformers import pipeline
